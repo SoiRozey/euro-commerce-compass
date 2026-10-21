@@ -1,24 +1,271 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import { Check, X, Upload, Crown, ArrowRight, Star } from "lucide-react";
+import logo from "@/assets/logo.png.asset.json";
+import heroTex from "@/assets/hero-texture.jpg";
+import { DICT, LANGS, type Lang } from "@/lib/i18n";
+import { SIGNUP_URL } from "@/lib/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €247 eenmalig";
+const DESC =
+  "De one-stop-shop community voor dropshipping en branded dropshipping. Hulp bij payment holds, ad accounts, btw, boekhouding en company formation. Eenmalig €247, 24/7 actief.";
+
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { name: "keywords", content: "dropshipping community, branded dropshipping, e-commerce groep, payment hold, agency ad account, btw dropshipping, company formation, ecom mentorship" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "90 Days Ecom Group — Lifetime Membership",
+          description: DESC,
+          brand: { "@type": "Organization", name: "90 Days Ecom Group" },
+          offers: { "@type": "Offer", price: "247", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
+        }),
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Photo({ id, label }: { id: string; label: string }) {
+  const [src, setSrc] = useState<string | null>(null);
+  const ref = useRef<HTMLInputElement>(null);
+  useEffect(() => setSrc(localStorage.getItem(`photo-${id}`)), [id]);
+  const onFile = (f?: File) => {
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      const v = r.result as string;
+      setSrc(v);
+      try { localStorage.setItem(`photo-${id}`, v); } catch { /* too large */ }
+    };
+    r.readAsDataURL(f);
+  };
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <button type="button" onClick={() => ref.current?.click()} className="group relative block aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-dial">
+      {src ? (
+        <img src={src} alt={label} className="h-full w-full object-cover" />
+      ) : (
+        <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
+          <Upload className="h-6 w-6 text-rose" />
+          <span className="text-xs uppercase tracking-widest">{label}</span>
+        </div>
+      )}
+      <input ref={ref} type="file" accept="image/*" hidden onChange={(e) => onFile(e.target.files?.[0])} />
+    </button>
+  );
+}
+
+function Index() {
+  const [lang, setLang] = useState<Lang>("nl");
+  useEffect(() => {
+    const saved = localStorage.getItem("lang") as Lang | null;
+    const nav = navigator.language.slice(0, 2) as Lang;
+    if (saved && LANGS.includes(saved)) setLang(saved);
+    else if (LANGS.includes(nav)) setLang(nav);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("lang", lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+  const t = DICT[lang];
+  const ids = ["why", "services", "results", "about", "pricing"];
+
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      {/* Nav */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logo.url} alt="90 Days Ecom Group logo" className="h-11 w-11 rounded-full" />
+            <span className="hidden font-display text-xl text-rose-gradient sm:block">90 Days Ecom Group</span>
+          </a>
+          <nav className="hidden gap-8 text-xs uppercase tracking-[0.2em] text-muted-foreground lg:flex">
+            {t.nav.map((n, i) => (
+              <a key={n} href={`#${ids[i]}`} className="transition-colors hover:text-rose">{n}</a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-3">
+            <select aria-label="Language" value={lang} onChange={(e) => setLang(e.target.value as Lang)} className="rounded-full border border-border bg-card px-3 py-2 text-xs uppercase tracking-widest">
+              {LANGS.map((l) => <option key={l} value={l}>{l.toUpperCase()}</option>)}
+            </select>
+            <a href={SIGNUP_URL} className="btn-lux !px-5 !py-2.5 hidden sm:inline-flex">{t.cta}</a>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        {/* Hero */}
+        <section className="relative flex min-h-screen items-center pt-24">
+          <img src={heroTex} alt="" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
+            <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000">
+              <p className="eyebrow mb-6 flex items-center gap-2"><Crown className="h-4 w-4" />{t.eyebrow}</p>
+              <h1 className="text-5xl leading-[1.02] md:text-7xl">
+                {t.heroTitle[0]}<br /><span className="text-rose-gradient italic">{t.heroTitle[1]}</span>
+              </h1>
+              <p className="mt-8 max-w-xl text-lg text-muted-foreground">{t.heroSub}</p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a href={SIGNUP_URL} className="btn-lux">{t.cta} — €247 <ArrowRight className="h-4 w-4" /></a>
+                <a href="#results" className="btn-ghost-lux">{t.heroSecondary}</a>
+              </div>
+              <div className="mt-10 flex items-center gap-3 text-sm text-muted-foreground">
+                <div className="flex text-rose">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
+                <span>{t.guarantee}</span>
+              </div>
+            </div>
+            <div className="relative mx-auto w-full max-w-md">
+              <div className="absolute inset-0 rounded-full bg-rose-gradient opacity-20 blur-3xl" />
+              <img src={logo.url} alt="90 Days Ecom Group embleem" className="relative w-full rounded-full shadow-glow" />
+            </div>
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section className="border-y border-border bg-chocolate">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
+            {t.stats.map(([v, l]) => (
+              <div key={l} className="text-center">
+                <div className="font-display text-4xl text-rose-gradient md:text-5xl">{v}</div>
+                <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{l}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Comparison */}
+        <section id="why" className="mx-auto max-w-6xl px-6 py-28">
+          <h2 className="mx-auto max-w-3xl text-center text-4xl md:text-5xl">{t.vsTitle}</h2>
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
+            <div className="card-lux p-10 opacity-80">
+              <h3 className="text-2xl text-muted-foreground">{t.vsOthers}</h3>
+              <ul className="mt-6 space-y-4">
+                {t.vsOthersItems.map((i) => <li key={i} className="flex gap-3 text-muted-foreground"><X className="h-5 w-5 shrink-0 text-destructive" />{i}</li>)}
+              </ul>
+            </div>
+            <div className="card-lux relative p-10 shadow-glow ring-1 ring-rose">
+              <h3 className="text-2xl text-rose-gradient">{t.vsUs}</h3>
+              <ul className="mt-6 space-y-4">
+                {t.vsUsItems.map((i) => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{i}</li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="bg-dial py-28">
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="eyebrow text-center">{t.servicesEyebrow}</p>
+            <h2 className="mx-auto mt-4 max-w-3xl text-center text-4xl md:text-5xl">{t.servicesTitle}</h2>
+            <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
+              {t.services.map(([title, d], i) => (
+                <div key={title} className="bg-background p-7 transition-colors hover:bg-card">
+                  <span className="font-display text-3xl text-rose-gradient">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 text-xl">{title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Results */}
+        <section id="results" className="mx-auto max-w-7xl px-6 py-28">
+          <p className="eyebrow text-center">{t.resultsEyebrow}</p>
+          <h2 className="mt-4 text-center text-4xl md:text-5xl">{t.resultsTitle}</h2>
+          <p className="mt-4 text-center text-sm text-muted-foreground">{t.uploadHint}</p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {t.testimonials.map(([name, role, quote], i) => (
+              <figure key={i} className="card-lux flex flex-col p-5">
+                <Photo id={`t${i}`} label={t.upload} />
+                <div className="mt-5 flex text-rose">{[...Array(5)].map((_, s) => <Star key={s} className="h-3.5 w-3.5 fill-current" />)}</div>
+                <blockquote className="mt-3 flex-1 font-display text-lg italic leading-snug">“{quote}”</blockquote>
+                <figcaption className="mt-5 border-t border-border pt-4">
+                  <div className="font-semibold">{name}</div>
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{role}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="border-y border-border bg-chocolate py-28">
+          <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[1fr_1.3fr]">
+            <div>
+              <p className="eyebrow">{t.aboutEyebrow}</p>
+              <h2 className="mt-4 text-4xl md:text-5xl">{t.aboutTitle}</h2>
+              <div className="mt-8"><Photo id="about" label={t.upload} /></div>
+            </div>
+            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:pt-12">
+              {t.about.map((p, i) => <p key={i} className={i === 0 ? "text-foreground" : ""}>{p}</p>)}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="relative py-28">
+          <div id="join" className="mx-auto max-w-xl px-6 text-center">
+            <p className="eyebrow">{t.pricingEyebrow}</p>
+            <div className="card-lux mt-8 p-10 shadow-glow ring-1 ring-rose">
+              <h2 className="text-3xl">{t.pricingTitle}</h2>
+              <div className="mt-6 flex items-end justify-center gap-3">
+                <span className="text-2xl text-muted-foreground line-through">€5.000</span>
+                <span className="font-display text-8xl leading-none text-rose-gradient">€247</span>
+              </div>
+              <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{t.once}</p>
+              <p className="mt-6 text-sm text-rose-light">{t.value}</p>
+              <ul className="mt-8 space-y-3 text-left">
+                {t.includes.map((i) => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{i}</li>)}
+              </ul>
+              <a href={SIGNUP_URL} className="btn-lux mt-10 w-full">{t.cta} <ArrowRight className="h-4 w-4" /></a>
+              <p className="mt-4 text-xs text-muted-foreground">{t.guarantee}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-3xl px-6 pb-28">
+          <h2 className="text-center text-4xl">{t.faqTitle}</h2>
+          <div className="mt-10 divide-y divide-border border-y border-border">
+            {t.faq.map(([q, a]) => (
+              <details key={q} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-display text-xl">
+                  {q}<span className="text-rose transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-muted-foreground">{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="relative overflow-hidden border-t border-border py-28 text-center">
+          <div className="absolute inset-0 bg-dial" />
+          <div className="relative mx-auto max-w-3xl px-6">
+            <h2 className="text-5xl md:text-6xl">{t.finalTitle}</h2>
+            <p className="mt-6 text-lg text-muted-foreground">{t.finalSub}</p>
+            <a href={SIGNUP_URL} className="btn-lux mt-10">{t.cta} — €247</a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border py-10 text-center text-xs uppercase tracking-widest text-muted-foreground">
+        © {new Date().getFullYear()} 90 Days Ecom Group · {t.footer}
+      </footer>
     </div>
   );
 }
