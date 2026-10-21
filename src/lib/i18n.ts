@@ -1,0 +1,356 @@
+export const LANGS = ["nl", "en", "de", "fr", "es"] as const;
+export type Lang = (typeof LANGS)[number];
+
+type Dict = {
+  nav: [string, string, string, string, string];
+  cta: string;
+  eyebrow: string;
+  heroTitle: [string, string];
+  heroSub: string;
+  heroSecondary: string;
+  stats: [string, string][];
+  vsTitle: string;
+  vsOthers: string;
+  vsOthersItems: string[];
+  vsUs: string;
+  vsUsItems: string[];
+  servicesEyebrow: string;
+  servicesTitle: string;
+  services: [string, string][];
+  resultsEyebrow: string;
+  resultsTitle: string;
+  uploadHint: string;
+  upload: string;
+  testimonials: [string, string, string][];
+  aboutEyebrow: string;
+  aboutTitle: string;
+  about: string[];
+  pricingEyebrow: string;
+  pricingTitle: string;
+  once: string;
+  value: string;
+  includes: string[];
+  guarantee: string;
+  faqTitle: string;
+  faq: [string, string][];
+  finalTitle: string;
+  finalSub: string;
+  footer: string;
+};
+
+const nl: Dict = {
+  nav: ["Waarom wij", "Services", "Resultaten", "Over ons", "Prijs"],
+  cta: "Word nu lid",
+  eyebrow: "De enige in de hele e-commerce game",
+  heroTitle: ["Geen coach.", "Een complete e-commerce familie."],
+  heroSub:
+    "90 Days Ecom Group is de one-stop-shop voor dropshipping en branded dropshipping. Andere coaches vragen €5.000+. Wij vragen eenmalig €247 — en helpen je met álles.",
+  heroSecondary: "Bekijk resultaten",
+  stats: [["24/7", "Community actief"], ["€247", "Eenmalig, geen abonnement"], ["A–Z", "Partners voor elk probleem"], ["€100K+", "Omzet per maand bij leden"]],
+  vsTitle: "Waarom €5.000 aan een coach zonde van je geld is",
+  vsOthers: "Andere coaches",
+  vsOthersItems: ["€5.000 – €10.000 vooraf", "Eén uurtje per maand, als je geluk hebt", "Komen niet opdagen", "Geen hulp bij echte problemen"],
+  vsUs: "90 Days Ecom Group",
+  vsUsItems: ["Eenmalig €247, voor altijd", "24/7 actieve community — nooit wachten", "Partners voor elk probleem van A tot Z", "Maandelijkse expert call + kwartaal meetup"],
+  servicesEyebrow: "De one-stop-shop",
+  servicesTitle: "Wat je probleem ook is, wij hebben iemand voor je",
+  services: [
+    ["Payment holds", "Stripe, Shopify Payments of PayPal vastgezet? Wij lossen het op."],
+    ["Agency ad accounts", "Ad account eruit gevallen? Direct toegang via ons ad agency netwerk."],
+    ["Boekhouding & btw", "Boekhouders en btw-specialisten die e-commerce écht begrijpen."],
+    ["Company formation", "Bedrijf opzetten in NL, EU, UK, US of Dubai — goed geregeld."],
+    ["Website & store", "Converterende Shopify-stores en branded webshops laten bouwen."],
+    ["Leveranciers & fulfilment", "Betrouwbare suppliers, private label en snelle verzending."],
+    ["Creatives & UGC", "Ad creatives, UGC-makers en videoteams die verkopen."],
+    ["Juridisch & IP", "Algemene voorwaarden, merkregistratie en compliance."],
+    ["Expert call", "Elke maand een live call met een topexpert uit de branche."],
+    ["Kwartaal meetup", "Elk kwartaal samenkomen met de hele groep. Netwerk = net worth."],
+  ],
+  resultsEyebrow: "Resultaten",
+  resultsTitle: "Van starter tot een ton per maand",
+  uploadHint: "Klik op een kaart om een screenshot of foto te uploaden.",
+  upload: "Foto uploaden",
+  testimonials: [
+    ["Daan V.", "Branded dropshipping", "Payment hold van €38K binnen 9 dagen vrijgekregen via hun partner. Een coach had me dat nooit kunnen geven."],
+    ["Sarah M.", "Dropshipping, DE-markt", "Van €0 naar €27K omzet in mijn eerste 90 dagen. Elke vraag binnen minuten beantwoord."],
+    ["Youssef K.", "Branded store", "We draaien nu €100K+ per maand. De meetups alleen al waren tien keer de €247 waard."],
+    ["Lisa B.", "Starter", "Ik had €6.000 aan een coach betaald die nooit kwam. Hier kreeg ik in één week meer hulp."],
+  ],
+  aboutEyebrow: "Over ons",
+  aboutTitle: "De coach kwam nooit opdagen. Dus deden we het zelf.",
+  about: [
+    "Ooit volgden we zelf een dure coaching. De coach kwam nooit opdagen. Dus dachten we: fuck it, we bouwen het zelf op — samen.",
+    "Wat begon als hobby liep compleet uit de hand. De groep groeide keihard, en nu zeggen we: wij zijn de one-stop-shop voor iedereen in e-commerce.",
+    "Wij geloven dat jij een eerlijke kans verdient. Steek je geld in je eigen business — niet in een coach die geen zin heeft om je te helpen.",
+  ],
+  pricingEyebrow: "Eén prijs. Alles inbegrepen.",
+  pricingTitle: "Levenslange toegang",
+  once: "eenmalig",
+  value: "Waarde: tienduizenden euro's aan besparingen en directe hulp",
+  includes: ["24/7 toegang tot de community", "Volledig partnernetwerk van A tot Z", "Maandelijkse expert call", "Elk kwartaal een live meetup", "Hulp bij payment holds, ad accounts, btw & meer", "Geen abonnement, geen verborgen kosten"],
+  guarantee: "Veilig betalen · Direct toegang",
+  faqTitle: "Veelgestelde vragen",
+  faq: [
+    ["Is dit een coachingprogramma?", "Nee. Wij zijn geen coachingbedrijf. Wij zijn een community met een partnernetwerk dat je business laat groeien."],
+    ["Is het echt eenmalig €247?", "Ja. Eén betaling, geen maandelijks abonnement."],
+    ["Voor wie is het?", "Voor iedereen in dropshipping of branded dropshipping — van beginner tot €100K+ per maand."],
+    ["Hoe snel krijg ik hulp?", "De community is 24/7 actief. Je hoeft nooit op iemand te wachten."],
+  ],
+  finalTitle: "Je verdient een eerlijke kans.",
+  finalSub: "Sluit je vandaag aan bij de 90 Days Ecom Group.",
+  footer: "Alle rechten voorbehouden.",
+};
+
+const en: Dict = {
+  nav: ["Why us", "Services", "Results", "About", "Pricing"],
+  cta: "Join now",
+  eyebrow: "The only one in the entire e-commerce game",
+  heroTitle: ["Not a coach.", "A complete e-commerce family."],
+  heroSub:
+    "90 Days Ecom Group is the one-stop shop for dropshipping and branded dropshipping. Other coaches charge €5,000+. We charge a one-time €247 — and help you with everything.",
+  heroSecondary: "See results",
+  stats: [["24/7", "Active community"], ["€247", "One-time, no subscription"], ["A–Z", "Partners for every problem"], ["€100K+", "Monthly revenue by members"]],
+  vsTitle: "Why paying a coach €5,000 is a waste of money",
+  vsOthers: "Other coaches",
+  vsOthersItems: ["€5,000 – €10,000 upfront", "One hour a month, if you're lucky", "Don't show up", "No help with real problems"],
+  vsUs: "90 Days Ecom Group",
+  vsUsItems: ["One-time €247, forever", "24/7 active community — never wait", "Partners for every problem, A to Z", "Monthly expert call + quarterly meetup"],
+  servicesEyebrow: "The one-stop shop",
+  servicesTitle: "Whatever your problem, we have someone for you",
+  services: [
+    ["Payment holds", "Stripe, Shopify Payments or PayPal frozen? We get it solved."],
+    ["Agency ad accounts", "Ad account banned? Instant access via our ad agency network."],
+    ["Accounting & VAT", "Accountants and VAT specialists who truly understand e-commerce."],
+    ["Company formation", "Set up your company in the EU, UK, US or Dubai — done right."],
+    ["Website & store", "High-converting Shopify stores and branded webshops built for you."],
+    ["Suppliers & fulfilment", "Reliable suppliers, private label and fast shipping."],
+    ["Creatives & UGC", "Ad creatives, UGC creators and video teams that sell."],
+    ["Legal & IP", "Terms, trademark registration and compliance."],
+    ["Expert call", "A live call with a top industry expert every month."],
+    ["Quarterly meetup", "Meet the whole group every quarter. Your network is your net worth."],
+  ],
+  resultsEyebrow: "Results",
+  resultsTitle: "From starter to six figures a month",
+  uploadHint: "Click a card to upload a screenshot or photo.",
+  upload: "Upload photo",
+  testimonials: [
+    ["Daan V.", "Branded dropshipping", "Got a €38K payment hold released in 9 days through their partner. No coach could have done that."],
+    ["Sarah M.", "Dropshipping, DE market", "From €0 to €27K revenue in my first 90 days. Every question answered within minutes."],
+    ["Youssef K.", "Branded store", "We now run €100K+ a month. The meetups alone were worth ten times the €247."],
+    ["Lisa B.", "Beginner", "I paid €6,000 to a coach who never showed up. Here I got more help in one week."],
+  ],
+  aboutEyebrow: "About us",
+  aboutTitle: "The coach never showed up. So we did it ourselves.",
+  about: [
+    "We once paid for an expensive coaching ourselves. The coach never showed up. So we thought: screw it, we'll build it ourselves — together.",
+    "What started as a hobby got completely out of hand. The group grew fast, and now we say: we are the one-stop shop for everyone in e-commerce.",
+    "We believe you deserve a fair chance. Put your money into your own business — not into a coach who can't be bothered to help you.",
+  ],
+  pricingEyebrow: "One price. Everything included.",
+  pricingTitle: "Lifetime access",
+  once: "one-time",
+  value: "Value: tens of thousands of euros in savings and direct help",
+  includes: ["24/7 community access", "Full A–Z partner network", "Monthly expert call", "Live meetup every quarter", "Help with payment holds, ad accounts, VAT & more", "No subscription, no hidden fees"],
+  guarantee: "Secure payment · Instant access",
+  faqTitle: "Frequently asked questions",
+  faq: [
+    ["Is this a coaching program?", "No. We are not a coaching company. We are a community with a partner network that grows your business."],
+    ["Is it really a one-time €247?", "Yes. One payment, no monthly subscription."],
+    ["Who is it for?", "Anyone in dropshipping or branded dropshipping — from beginner to €100K+ a month."],
+    ["How fast do I get help?", "The community is active 24/7. You never have to wait for anyone."],
+  ],
+  finalTitle: "You deserve a fair chance.",
+  finalSub: "Join the 90 Days Ecom Group today.",
+  footer: "All rights reserved.",
+};
+
+const de: Dict = {
+  nav: ["Warum wir", "Services", "Ergebnisse", "Über uns", "Preis"],
+  cta: "Jetzt beitreten",
+  eyebrow: "Die Einzigen im gesamten E-Commerce-Game",
+  heroTitle: ["Kein Coach.", "Eine komplette E-Commerce-Familie."],
+  heroSub:
+    "Die 90 Days Ecom Group ist der One-Stop-Shop für Dropshipping und Branded Dropshipping. Andere Coaches verlangen 5.000 €+. Wir verlangen einmalig 247 € — und helfen dir bei allem.",
+  heroSecondary: "Ergebnisse ansehen",
+  stats: [["24/7", "Aktive Community"], ["247 €", "Einmalig, kein Abo"], ["A–Z", "Partner für jedes Problem"], ["100K €+", "Monatsumsatz unserer Mitglieder"]],
+  vsTitle: "Warum 5.000 € für einen Coach verschwendetes Geld sind",
+  vsOthers: "Andere Coaches",
+  vsOthersItems: ["5.000 – 10.000 € im Voraus", "Eine Stunde im Monat, wenn überhaupt", "Tauchen nicht auf", "Keine Hilfe bei echten Problemen"],
+  vsUs: "90 Days Ecom Group",
+  vsUsItems: ["Einmalig 247 €, für immer", "24/7 aktive Community — nie warten", "Partner für jedes Problem von A bis Z", "Monatlicher Expert-Call + Quartals-Meetup"],
+  servicesEyebrow: "Der One-Stop-Shop",
+  servicesTitle: "Egal welches Problem — wir haben jemanden für dich",
+  services: [
+    ["Payment Holds", "Stripe, Shopify Payments oder PayPal eingefroren? Wir lösen es."],
+    ["Agency-Werbekonten", "Werbekonto gesperrt? Sofortiger Zugang über unser Agency-Netzwerk."],
+    ["Buchhaltung & USt.", "Steuerberater, die E-Commerce wirklich verstehen."],
+    ["Firmengründung", "Gründung in EU, UK, USA oder Dubai — richtig gemacht."],
+    ["Website & Shop", "Konvertierende Shopify-Stores und Brand-Shops."],
+    ["Lieferanten & Fulfillment", "Zuverlässige Lieferanten, Private Label und schneller Versand."],
+    ["Creatives & UGC", "Ad-Creatives, UGC-Creator und Videoteams, die verkaufen."],
+    ["Recht & Marken", "AGB, Markenanmeldung und Compliance."],
+    ["Expert-Call", "Jeden Monat ein Live-Call mit einem Top-Experten."],
+    ["Quartals-Meetup", "Jedes Quartal trifft sich die ganze Gruppe."],
+  ],
+  resultsEyebrow: "Ergebnisse",
+  resultsTitle: "Vom Anfänger bis sechsstellig pro Monat",
+  uploadHint: "Klicke auf eine Karte, um ein Foto hochzuladen.",
+  upload: "Foto hochladen",
+  testimonials: [
+    ["Daan V.", "Branded Dropshipping", "38K € Payment Hold in 9 Tagen über ihren Partner freibekommen."],
+    ["Sarah M.", "Dropshipping, DE", "Von 0 € auf 27K € Umsatz in den ersten 90 Tagen."],
+    ["Youssef K.", "Brand Store", "Wir machen jetzt 100K €+ im Monat. Allein die Meetups waren das Zehnfache wert."],
+    ["Lisa B.", "Anfängerin", "6.000 € an einen Coach bezahlt, der nie kam. Hier bekam ich in einer Woche mehr Hilfe."],
+  ],
+  aboutEyebrow: "Über uns",
+  aboutTitle: "Der Coach kam nie. Also haben wir es selbst gemacht.",
+  about: [
+    "Wir haben selbst einmal ein teures Coaching gebucht. Der Coach ist nie aufgetaucht. Also dachten wir: Scheiß drauf, wir bauen es selbst auf — gemeinsam.",
+    "Was als Hobby begann, ist völlig eskaliert. Die Gruppe wuchs rasant, und heute sind wir der One-Stop-Shop für alle im E-Commerce.",
+    "Wir glauben, dass du eine faire Chance verdienst. Investiere in dein eigenes Business — nicht in einen Coach, der keine Lust hat.",
+  ],
+  pricingEyebrow: "Ein Preis. Alles inklusive.",
+  pricingTitle: "Lebenslanger Zugang",
+  once: "einmalig",
+  value: "Wert: Zehntausende Euro an Ersparnissen und direkter Hilfe",
+  includes: ["24/7 Community-Zugang", "Komplettes Partnernetzwerk A–Z", "Monatlicher Expert-Call", "Live-Meetup jedes Quartal", "Hilfe bei Payment Holds, Werbekonten, USt. & mehr", "Kein Abo, keine versteckten Kosten"],
+  guarantee: "Sichere Zahlung · Sofortiger Zugang",
+  faqTitle: "Häufige Fragen",
+  faq: [
+    ["Ist das ein Coaching?", "Nein. Wir sind eine Community mit Partnernetzwerk, die dein Business wachsen lässt."],
+    ["Wirklich einmalig 247 €?", "Ja. Eine Zahlung, kein Abo."],
+    ["Für wen ist das?", "Für alle im Dropshipping oder Branded Dropshipping — vom Anfänger bis 100K €+ im Monat."],
+    ["Wie schnell bekomme ich Hilfe?", "Die Community ist 24/7 aktiv."],
+  ],
+  finalTitle: "Du verdienst eine faire Chance.",
+  finalSub: "Tritt noch heute der 90 Days Ecom Group bei.",
+  footer: "Alle Rechte vorbehalten.",
+};
+
+const fr: Dict = {
+  nav: ["Pourquoi nous", "Services", "Résultats", "À propos", "Prix"],
+  cta: "Rejoindre",
+  eyebrow: "Les seuls dans tout le game e-commerce",
+  heroTitle: ["Pas un coach.", "Une vraie famille e-commerce."],
+  heroSub:
+    "90 Days Ecom Group est le guichet unique du dropshipping et du branded dropshipping. Les autres coachs demandent 5 000 €+. Nous : 247 € une seule fois — et on t'aide sur tout.",
+  heroSecondary: "Voir les résultats",
+  stats: [["24/7", "Communauté active"], ["247 €", "Paiement unique"], ["A–Z", "Partenaires pour tout"], ["100K €+", "CA mensuel des membres"]],
+  vsTitle: "Pourquoi payer 5 000 € à un coach, c'est gaspiller ton argent",
+  vsOthers: "Les autres coachs",
+  vsOthersItems: ["5 000 – 10 000 € d'avance", "Une heure par mois, au mieux", "Ne se présentent pas", "Aucune aide sur les vrais problèmes"],
+  vsUs: "90 Days Ecom Group",
+  vsUsItems: ["247 € une fois, pour toujours", "Communauté active 24/7", "Partenaires pour chaque problème", "Expert call mensuel + meetup trimestriel"],
+  servicesEyebrow: "Le guichet unique",
+  servicesTitle: "Quel que soit ton problème, on a quelqu'un pour toi",
+  services: [
+    ["Payment holds", "Stripe, Shopify Payments ou PayPal bloqué ? On le règle."],
+    ["Comptes pub agence", "Compte pub banni ? Accès immédiat via notre réseau d'agences."],
+    ["Comptabilité & TVA", "Des comptables qui comprennent vraiment l'e-commerce."],
+    ["Création de société", "UE, UK, USA ou Dubaï — bien fait."],
+    ["Site & boutique", "Boutiques Shopify qui convertissent."],
+    ["Fournisseurs & logistique", "Fournisseurs fiables, private label, livraison rapide."],
+    ["Créas & UGC", "Créatives publicitaires et créateurs UGC qui vendent."],
+    ["Juridique & marques", "CGV, dépôt de marque et conformité."],
+    ["Expert call", "Un live chaque mois avec un expert de haut niveau."],
+    ["Meetup trimestriel", "Tout le groupe se retrouve chaque trimestre."],
+  ],
+  resultsEyebrow: "Résultats",
+  resultsTitle: "De débutant à six chiffres par mois",
+  uploadHint: "Clique sur une carte pour ajouter une photo.",
+  upload: "Ajouter une photo",
+  testimonials: [
+    ["Daan V.", "Branded dropshipping", "Payment hold de 38K € débloqué en 9 jours grâce à leur partenaire."],
+    ["Sarah M.", "Dropshipping", "De 0 à 27K € de CA en 90 jours."],
+    ["Youssef K.", "Marque", "On fait maintenant 100K €+ par mois."],
+    ["Lisa B.", "Débutante", "J'avais payé 6 000 € à un coach absent. Ici, plus d'aide en une semaine."],
+  ],
+  aboutEyebrow: "À propos",
+  aboutTitle: "Le coach n'est jamais venu. Alors on l'a fait nous-mêmes.",
+  about: [
+    "Un jour, on a payé un coaching cher. Le coach n'est jamais venu. Alors on s'est dit : tant pis, on construit ça nous-mêmes — ensemble.",
+    "Ce qui était un hobby a complètement explosé. Aujourd'hui, nous sommes le guichet unique de l'e-commerce.",
+    "Tu mérites une vraie chance. Investis dans ton business — pas dans un coach qui n'a pas envie de t'aider.",
+  ],
+  pricingEyebrow: "Un prix. Tout inclus.",
+  pricingTitle: "Accès à vie",
+  once: "une fois",
+  value: "Valeur : des dizaines de milliers d'euros d'économies et d'aide directe",
+  includes: ["Accès communauté 24/7", "Réseau de partenaires A–Z", "Expert call mensuel", "Meetup chaque trimestre", "Aide payment holds, comptes pub, TVA…", "Sans abonnement"],
+  guarantee: "Paiement sécurisé · Accès immédiat",
+  faqTitle: "Questions fréquentes",
+  faq: [
+    ["C'est du coaching ?", "Non. Nous sommes une communauté avec un réseau de partenaires."],
+    ["Vraiment 247 € une fois ?", "Oui. Un paiement, sans abonnement."],
+    ["Pour qui ?", "Tout le monde en dropshipping, du débutant à 100K €+ par mois."],
+    ["Aide rapide ?", "La communauté est active 24/7."],
+  ],
+  finalTitle: "Tu mérites une vraie chance.",
+  finalSub: "Rejoins la 90 Days Ecom Group aujourd'hui.",
+  footer: "Tous droits réservés.",
+};
+
+const es: Dict = {
+  nav: ["Por qué", "Servicios", "Resultados", "Nosotros", "Precio"],
+  cta: "Únete ahora",
+  eyebrow: "Los únicos en todo el juego del e-commerce",
+  heroTitle: ["No somos coaches.", "Somos una familia e-commerce."],
+  heroSub:
+    "90 Days Ecom Group es el one-stop-shop del dropshipping y branded dropshipping. Otros coaches cobran 5.000 €+. Nosotros, 247 € una sola vez — y te ayudamos con todo.",
+  heroSecondary: "Ver resultados",
+  stats: [["24/7", "Comunidad activa"], ["247 €", "Pago único"], ["A–Z", "Socios para todo"], ["100K €+", "Facturación mensual de miembros"]],
+  vsTitle: "Por qué pagar 5.000 € a un coach es tirar tu dinero",
+  vsOthers: "Otros coaches",
+  vsOthersItems: ["5.000 – 10.000 € por adelantado", "Una hora al mes, con suerte", "No aparecen", "Sin ayuda real"],
+  vsUs: "90 Days Ecom Group",
+  vsUsItems: ["247 € una vez, para siempre", "Comunidad activa 24/7", "Socios para cada problema", "Expert call mensual + meetup trimestral"],
+  servicesEyebrow: "El one-stop-shop",
+  servicesTitle: "Sea cual sea tu problema, tenemos a alguien",
+  services: [
+    ["Payment holds", "¿Stripe, Shopify Payments o PayPal bloqueado? Lo resolvemos."],
+    ["Cuentas de agencia", "¿Cuenta publicitaria baneada? Acceso inmediato vía agencia."],
+    ["Contabilidad e IVA", "Contables que entienden el e-commerce."],
+    ["Creación de empresa", "UE, UK, EE. UU. o Dubái — bien hecho."],
+    ["Web y tienda", "Tiendas Shopify que convierten."],
+    ["Proveedores y logística", "Proveedores fiables, private label y envío rápido."],
+    ["Creatividades y UGC", "Anuncios y creadores UGC que venden."],
+    ["Legal y marcas", "Términos, registro de marca y cumplimiento."],
+    ["Expert call", "Cada mes, un directo con un experto top."],
+    ["Meetup trimestral", "Todo el grupo se reúne cada trimestre."],
+  ],
+  resultsEyebrow: "Resultados",
+  resultsTitle: "De principiante a seis cifras al mes",
+  uploadHint: "Haz clic en una tarjeta para subir una foto.",
+  upload: "Subir foto",
+  testimonials: [
+    ["Daan V.", "Branded dropshipping", "Liberamos un payment hold de 38K € en 9 días."],
+    ["Sarah M.", "Dropshipping", "De 0 a 27K € en mis primeros 90 días."],
+    ["Youssef K.", "Marca propia", "Ahora facturamos 100K €+ al mes."],
+    ["Lisa B.", "Principiante", "Pagué 6.000 € a un coach que nunca apareció. Aquí tuve más ayuda en una semana."],
+  ],
+  aboutEyebrow: "Nosotros",
+  aboutTitle: "El coach nunca apareció. Así que lo hicimos nosotros.",
+  about: [
+    "Una vez pagamos un coaching caro. El coach nunca apareció. Pensamos: a la mierda, lo construimos nosotros — juntos.",
+    "Lo que empezó como hobby se descontroló. Hoy somos el one-stop-shop del e-commerce.",
+    "Mereces una oportunidad justa. Invierte en tu negocio, no en un coach sin ganas de ayudarte.",
+  ],
+  pricingEyebrow: "Un precio. Todo incluido.",
+  pricingTitle: "Acceso de por vida",
+  once: "pago único",
+  value: "Valor: decenas de miles de euros en ahorro y ayuda directa",
+  includes: ["Comunidad 24/7", "Red de socios A–Z", "Expert call mensual", "Meetup cada trimestre", "Ayuda con payment holds, cuentas, IVA…", "Sin suscripción"],
+  guarantee: "Pago seguro · Acceso inmediato",
+  faqTitle: "Preguntas frecuentes",
+  faq: [
+    ["¿Es un coaching?", "No. Somos una comunidad con red de socios."],
+    ["¿De verdad 247 € una vez?", "Sí. Un pago, sin suscripción."],
+    ["¿Para quién?", "Para todos en dropshipping, de principiante a 100K €+ al mes."],
+    ["¿Ayuda rápida?", "La comunidad está activa 24/7."],
+  ],
+  finalTitle: "Mereces una oportunidad justa.",
+  finalSub: "Únete hoy a 90 Days Ecom Group.",
+  footer: "Todos los derechos reservados.",
+};
+
+export const DICT: Record<Lang, Dict> = { nl, en, de, fr, es };
