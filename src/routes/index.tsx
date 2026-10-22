@@ -186,12 +186,10 @@ function Index() {
         <section id="results" className="mx-auto max-w-7xl px-6 py-28">
           <p className="eyebrow text-center">{t.resultsEyebrow}</p>
           <h2 className="mt-4 text-center text-4xl md:text-5xl">{t.resultsTitle}</h2>
-          <p className="mt-4 text-center text-sm text-muted-foreground">{t.uploadHint}</p>
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {t.testimonials.map(([name, role, quote], i) => (
               <figure key={i} className="card-lux flex flex-col p-5">
-                <Photo id={`t${i}`} label={t.upload} />
-                <div className="mt-5 flex text-rose">{[...Array(5)].map((_, s) => <Star key={s} className="h-3.5 w-3.5 fill-current" />)}</div>
+                <div className="flex text-rose">{[...Array(5)].map((_, s) => <Star key={s} className="h-3.5 w-3.5 fill-current" />)}</div>
                 <blockquote className="mt-3 flex-1 font-display text-lg italic leading-snug">“{quote}”</blockquote>
                 <figcaption className="mt-5 border-t border-border pt-4">
                   <div className="font-semibold">{name}</div>
@@ -264,7 +262,8 @@ function Index() {
       </main>
 
       <footer className="border-t border-border py-10 text-center text-xs uppercase tracking-widest text-muted-foreground">
-        © {new Date().getFullYear()} 90 Days Ecom Group · {t.footer}
+        <p>© {new Date().getFullYear()} 90 Days Ecom Group · {t.footer}</p>
+        <p className="mt-2 text-[10px] normal-case tracking-normal opacity-70">{t.refund}</p>
       </footer>
     </div>
   );
