@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, X, Upload, Crown, ArrowRight, Star } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
 import heroTex from "@/assets/hero-texture.jpg";
-import { DICT, LANGS, type Lang } from "@/lib/i18n";
+import { CURRENCIES, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, detectCurrency, fmtMoney, localize, type Currency, type Lang } from "@/lib/i18n";
 import { SIGNUP_URL } from "@/lib/site";
 
 const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €247 eenmalig";
@@ -76,11 +76,22 @@ function Index() {
     if (saved && LANGS.includes(saved)) setLang(saved);
     else if (LANGS.includes(nav)) setLang(nav);
   }, []);
+  const [cur, setCur] = useState<Currency>("EUR");
+  useEffect(() => {
+    const saved = localStorage.getItem("currency") as Currency | null;
+    if (saved && CURRENCIES.includes(saved)) setCur(saved);
+    else setCur(detectCurrency());
+  }, []);
   useEffect(() => {
     localStorage.setItem("lang", lang);
     document.documentElement.lang = lang;
   }, [lang]);
-  const t = DICT[lang];
+  useEffect(() => {
+    localStorage.setItem("currency", cur);
+  }, [cur]);
+  const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
+  const price = fmtMoney("247", lang, cur);
+  const anchor = fmtMoney("5000", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
 
   return (
@@ -97,9 +108,12 @@ function Index() {
               <a key={n} href={`#${ids[i]}`} className="transition-colors hover:text-rose">{n}</a>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
-            <select aria-label="Language" value={lang} onChange={(e) => setLang(e.target.value as Lang)} className="rounded-full border border-border bg-card px-3 py-2 text-xs uppercase tracking-widest">
-              {LANGS.map((l) => <option key={l} value={l}>{l.toUpperCase()}</option>)}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <select aria-label="Language" value={lang} onChange={(e) => setLang(e.target.value as Lang)} className="rounded-full border border-border bg-card px-2.5 py-2 text-xs uppercase tracking-widest sm:px-3">
+              {LANGS.map((l) => <option key={l} value={l}>{LANG_FLAG[l]} {l.toUpperCase()}</option>)}
+            </select>
+            <select aria-label="Currency" value={cur} onChange={(e) => setCur(e.target.value as Currency)} className="rounded-full border border-border bg-card px-2.5 py-2 text-xs uppercase tracking-widest sm:px-3">
+              {CURRENCIES.map((c) => <option key={c} value={c}>{CURRENCY_SYMBOL[c]} {c}</option>)}
             </select>
             <a href={SIGNUP_URL} className="btn-lux !px-5 !py-2.5 hidden sm:inline-flex">{t.cta}</a>
           </div>
@@ -119,7 +133,7 @@ function Index() {
               </h1>
               <p className="mt-8 max-w-xl text-lg text-muted-foreground">{t.heroSub}</p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={SIGNUP_URL} className="btn-lux">{t.cta} — €247 <ArrowRight className="h-4 w-4" /></a>
+                <a href={SIGNUP_URL} className="btn-lux">{t.cta} — {price} <ArrowRight className="h-4 w-4" /></a>
                 <a href="#results" className="btn-ghost-lux">{t.heroSecondary}</a>
               </div>
               <div className="mt-10 flex items-center gap-3 text-sm text-muted-foreground">
@@ -221,8 +235,8 @@ function Index() {
             <div className="card-lux mt-8 p-10 shadow-glow ring-1 ring-rose">
               <h2 className="text-3xl">{t.pricingTitle}</h2>
               <div className="mt-6 flex items-end justify-center gap-3">
-                <span className="text-2xl text-muted-foreground line-through">€5.000</span>
-                <span className="font-display text-8xl leading-none text-rose-gradient">€247</span>
+                <span className="text-2xl text-muted-foreground line-through">{anchor}</span>
+                <span className="font-display text-8xl leading-none text-rose-gradient">{price}</span>
               </div>
               <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{t.once}</p>
               <p className="mt-6 text-sm text-rose-light">{t.value}</p>
@@ -256,7 +270,7 @@ function Index() {
           <div className="relative mx-auto max-w-3xl px-6">
             <h2 className="text-5xl md:text-6xl">{t.finalTitle}</h2>
             <p className="mt-6 text-lg text-muted-foreground">{t.finalSub}</p>
-            <a href={SIGNUP_URL} className="btn-lux mt-10">{t.cta} — €247</a>
+            <a href={SIGNUP_URL} className="btn-lux mt-10">{t.cta} — {price}</a>
           </div>
         </section>
       </main>
