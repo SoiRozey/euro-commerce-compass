@@ -36,6 +36,7 @@ type Dict = {
   finalTitle: string;
   finalSub: string;
   footer: string;
+  refund: string;
 };
 
 const nl: Dict = {
@@ -58,11 +59,11 @@ const nl: Dict = {
     ["Payment holds", "Stripe, Shopify Payments of PayPal vastgezet? Wij lossen het op."],
     ["Agency ad accounts", "Ad account eruit gevallen? Direct toegang via ons ad agency netwerk."],
     ["Boekhouding & btw", "Boekhouders en btw-specialisten die e-commerce écht begrijpen."],
-    ["Company formation", "Bedrijf opzetten in NL, EU, UK, US of Dubai — goed geregeld."],
+    ["Company formation", "Bedrijf opzetten in NL, HK, UK, US of Dubai — goed geregeld."],
     ["Website & store", "Converterende Shopify-stores en branded webshops laten bouwen."],
     ["Leveranciers & fulfilment", "Betrouwbare suppliers, private label en snelle verzending."],
-    ["Creatives & UGC", "Ad creatives, UGC-makers en videoteams die verkopen."],
-    ["Juridisch & IP", "Algemene voorwaarden, merkregistratie en compliance."],
+    ["Exit strategie", "Wij helpen je met het verkopen van je store — of we kopen hem zelf."],
+    ["Ads", "Hulp bij Google Ads en eventueel andere advertentieplatformen."],
     ["Expert call", "Elke maand een live call met een topexpert uit de branche."],
     ["Kwartaal meetup", "Elk kwartaal samenkomen met de hele groep. Netwerk = net worth."],
   ],
@@ -82,6 +83,7 @@ const nl: Dict = {
     "Ooit volgden we zelf een dure coaching. De coach kwam nooit opdagen. Dus dachten we: fuck it, we bouwen het zelf op — samen.",
     "Wat begon als hobby liep compleet uit de hand. De groep groeide keihard, en nu zeggen we: wij zijn de one-stop-shop voor iedereen in e-commerce.",
     "Wij geloven dat jij een eerlijke kans verdient. Steek je geld in je eigen business — niet in een coach die geen zin heeft om je te helpen.",
+    "Opgezet door Kiki Rozey — zelf e-com ondernemer. Kiki bouwde een eigen store op naar €150K per maand en verkocht die. Nu bouwt ze aan nieuwe fashion stores en een e-com portfolio met meerdere stores.",
   ],
   pricingEyebrow: "Eén prijs. Alles inbegrepen.",
   pricingTitle: "Levenslange toegang",
@@ -99,6 +101,7 @@ const nl: Dict = {
   finalTitle: "Je verdient een eerlijke kans.",
   finalSub: "Sluit je vandaag aan bij de 90 Days Ecom Group.",
   footer: "Alle rechten voorbehouden.",
+  refund: "Alle verkopen zijn definitief; er worden geen terugbetalingen gedaan.",
 };
 
 const en: Dict = {
@@ -121,11 +124,11 @@ const en: Dict = {
     ["Payment holds", "Stripe, Shopify Payments or PayPal frozen? We get it solved."],
     ["Agency ad accounts", "Ad account banned? Instant access via our ad agency network."],
     ["Accounting & VAT", "Accountants and VAT specialists who truly understand e-commerce."],
-    ["Company formation", "Set up your company in the EU, UK, US or Dubai — done right."],
+    ["Company formation", "Set up your company in HK, the UK, US or Dubai — done right."],
     ["Website & store", "High-converting Shopify stores and branded webshops built for you."],
     ["Suppliers & fulfilment", "Reliable suppliers, private label and fast shipping."],
-    ["Creatives & UGC", "Ad creatives, UGC creators and video teams that sell."],
-    ["Legal & IP", "Terms, trademark registration and compliance."],
+    ["Exit strategy", "We help you sell your store — or we buy it ourselves."],
+    ["Ads", "Help with Google Ads and other ad platforms."],
     ["Expert call", "A live call with a top industry expert every month."],
     ["Quarterly meetup", "Meet the whole group every quarter. Your network is your net worth."],
   ],
@@ -145,6 +148,7 @@ const en: Dict = {
     "We once paid for an expensive coaching ourselves. The coach never showed up. So we thought: screw it, we'll build it ourselves — together.",
     "What started as a hobby got completely out of hand. The group grew fast, and now we say: we are the one-stop shop for everyone in e-commerce.",
     "We believe you deserve a fair chance. Put your money into your own business — not into a coach who can't be bothered to help you.",
+    "Founded by Kiki Rozey — an e-com entrepreneur herself. Kiki built her own store to €150K a month and sold it. She is now building new fashion stores and an e-com portfolio of multiple stores.",
   ],
   pricingEyebrow: "One price. Everything included.",
   pricingTitle: "Lifetime access",
@@ -162,6 +166,7 @@ const en: Dict = {
   finalTitle: "You deserve a fair chance.",
   finalSub: "Join the 90 Days Ecom Group today.",
   footer: "All rights reserved.",
+  refund: "All sales are final and therefore no refunds.",
 };
 
 const de: Dict = {
@@ -184,11 +189,11 @@ const de: Dict = {
     ["Payment Holds", "Stripe, Shopify Payments oder PayPal eingefroren? Wir lösen es."],
     ["Agency-Werbekonten", "Werbekonto gesperrt? Sofortiger Zugang über unser Agency-Netzwerk."],
     ["Buchhaltung & USt.", "Steuerberater, die E-Commerce wirklich verstehen."],
-    ["Firmengründung", "Gründung in EU, UK, USA oder Dubai — richtig gemacht."],
+    ["Firmengründung", "Gründung in HK, UK, USA oder Dubai — richtig gemacht."],
     ["Website & Shop", "Konvertierende Shopify-Stores und Brand-Shops."],
     ["Lieferanten & Fulfillment", "Zuverlässige Lieferanten, Private Label und schneller Versand."],
-    ["Creatives & UGC", "Ad-Creatives, UGC-Creator und Videoteams, die verkaufen."],
-    ["Recht & Marken", "AGB, Markenanmeldung und Compliance."],
+    ["Exit-Strategie", "Wir helfen dir, deinen Store zu verkaufen — oder kaufen ihn selbst."],
+    ["Ads", "Hilfe bei Google Ads und weiteren Werbeplattformen."],
     ["Expert-Call", "Jeden Monat ein Live-Call mit einem Top-Experten."],
     ["Quartals-Meetup", "Jedes Quartal trifft sich die ganze Gruppe."],
   ],
@@ -208,6 +213,7 @@ const de: Dict = {
     "Wir haben selbst einmal ein teures Coaching gebucht. Der Coach ist nie aufgetaucht. Also dachten wir: Scheiß drauf, wir bauen es selbst auf — gemeinsam.",
     "Was als Hobby begann, ist völlig eskaliert. Die Gruppe wuchs rasant, und heute sind wir der One-Stop-Shop für alle im E-Commerce.",
     "Wir glauben, dass du eine faire Chance verdienst. Investiere in dein eigenes Business — nicht in einen Coach, der keine Lust hat.",
+    "Gegründet von Kiki Rozey — selbst E-Com-Unternehmerin. Kiki hat ihren eigenen Store auf 150K € pro Monat aufgebaut und verkauft. Jetzt baut sie neue Fashion-Stores und ein E-Com-Portfolio mit mehreren Stores auf.",
   ],
   pricingEyebrow: "Ein Preis. Alles inklusive.",
   pricingTitle: "Lebenslanger Zugang",
@@ -225,6 +231,7 @@ const de: Dict = {
   finalTitle: "Du verdienst eine faire Chance.",
   finalSub: "Tritt noch heute der 90 Days Ecom Group bei.",
   footer: "Alle Rechte vorbehalten.",
+  refund: "Alle Verkäufe sind endgültig; keine Rückerstattungen.",
 };
 
 const fr: Dict = {
@@ -247,11 +254,11 @@ const fr: Dict = {
     ["Payment holds", "Stripe, Shopify Payments ou PayPal bloqué ? On le règle."],
     ["Comptes pub agence", "Compte pub banni ? Accès immédiat via notre réseau d'agences."],
     ["Comptabilité & TVA", "Des comptables qui comprennent vraiment l'e-commerce."],
-    ["Création de société", "UE, UK, USA ou Dubaï — bien fait."],
+    ["Création de société", "HK, UK, USA ou Dubaï — bien fait."],
     ["Site & boutique", "Boutiques Shopify qui convertissent."],
     ["Fournisseurs & logistique", "Fournisseurs fiables, private label, livraison rapide."],
-    ["Créas & UGC", "Créatives publicitaires et créateurs UGC qui vendent."],
-    ["Juridique & marques", "CGV, dépôt de marque et conformité."],
+    ["Stratégie de sortie", "On t'aide à vendre ta boutique — ou on la rachète nous-mêmes."],
+    ["Ads", "Aide sur Google Ads et d'autres plateformes publicitaires."],
     ["Expert call", "Un live chaque mois avec un expert de haut niveau."],
     ["Meetup trimestriel", "Tout le groupe se retrouve chaque trimestre."],
   ],
@@ -271,6 +278,7 @@ const fr: Dict = {
     "Un jour, on a payé un coaching cher. Le coach n'est jamais venu. Alors on s'est dit : tant pis, on construit ça nous-mêmes — ensemble.",
     "Ce qui était un hobby a complètement explosé. Aujourd'hui, nous sommes le guichet unique de l'e-commerce.",
     "Tu mérites une vraie chance. Investis dans ton business — pas dans un coach qui n'a pas envie de t'aider.",
+    "Fondé par Kiki Rozey — elle-même entrepreneuse e-com. Kiki a développé sa propre boutique jusqu'à 150K € par mois avant de la vendre. Elle construit aujourd'hui de nouvelles boutiques mode et un portefeuille e-com de plusieurs boutiques.",
   ],
   pricingEyebrow: "Un prix. Tout inclus.",
   pricingTitle: "Accès à vie",
@@ -288,6 +296,7 @@ const fr: Dict = {
   finalTitle: "Tu mérites une vraie chance.",
   finalSub: "Rejoins la 90 Days Ecom Group aujourd'hui.",
   footer: "Tous droits réservés.",
+  refund: "Toutes les ventes sont définitives ; aucun remboursement.",
 };
 
 const es: Dict = {
@@ -310,11 +319,11 @@ const es: Dict = {
     ["Payment holds", "¿Stripe, Shopify Payments o PayPal bloqueado? Lo resolvemos."],
     ["Cuentas de agencia", "¿Cuenta publicitaria baneada? Acceso inmediato vía agencia."],
     ["Contabilidad e IVA", "Contables que entienden el e-commerce."],
-    ["Creación de empresa", "UE, UK, EE. UU. o Dubái — bien hecho."],
+    ["Creación de empresa", "HK, UK, EE. UU. o Dubái — bien hecho."],
     ["Web y tienda", "Tiendas Shopify que convierten."],
     ["Proveedores y logística", "Proveedores fiables, private label y envío rápido."],
-    ["Creatividades y UGC", "Anuncios y creadores UGC que venden."],
-    ["Legal y marcas", "Términos, registro de marca y cumplimiento."],
+    ["Estrategia de salida", "Te ayudamos a vender tu tienda — o la compramos nosotros."],
+    ["Ads", "Ayuda con Google Ads y otras plataformas publicitarias."],
     ["Expert call", "Cada mes, un directo con un experto top."],
     ["Meetup trimestral", "Todo el grupo se reúne cada trimestre."],
   ],
@@ -334,6 +343,7 @@ const es: Dict = {
     "Una vez pagamos un coaching caro. El coach nunca apareció. Pensamos: a la mierda, lo construimos nosotros — juntos.",
     "Lo que empezó como hobby se descontroló. Hoy somos el one-stop-shop del e-commerce.",
     "Mereces una oportunidad justa. Invierte en tu negocio, no en un coach sin ganas de ayudarte.",
+    "Fundado por Kiki Rozey — también emprendedora e-com. Kiki llevó su propia tienda a 150K € al mes y la vendió. Ahora está creando nuevas tiendas de moda y un portafolio e-com con varias tiendas.",
   ],
   pricingEyebrow: "Un precio. Todo incluido.",
   pricingTitle: "Acceso de por vida",
@@ -351,6 +361,7 @@ const es: Dict = {
   finalTitle: "Mereces una oportunidad justa.",
   finalSub: "Únete hoy a 90 Days Ecom Group.",
   footer: "Todos los derechos reservados.",
+  refund: "Todas las ventas son finales; no hay reembolsos.",
 };
 
 export const DICT: Record<Lang, Dict> = { nl, en, de, fr, es };
