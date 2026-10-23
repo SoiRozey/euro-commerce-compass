@@ -3,8 +3,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, X, Upload, Crown, ArrowRight, Star } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
 import heroTex from "@/assets/hero-texture.jpg";
-import { CURRENCIES, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, detectCurrency, fmtMoney, localize, type Currency, type Lang } from "@/lib/i18n";
-import { SIGNUP_URL } from "@/lib/site";
+import { CURRENCIES, CURRENCY_FLAG, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, LANG_LABEL, currencyForCountry, detectCountry, detectCurrency, fmtMoney, langForCountry, localize, type Currency, type Lang } from "@/lib/i18n";
+import { SIGNUP_URLS } from "@/lib/site";
 
 const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €247 eenmalig";
 const DESC =
@@ -70,26 +70,37 @@ function Photo({ id, label }: { id: string; label: string }) {
 
 function Index() {
   const [lang, setLang] = useState<Lang>("nl");
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as Lang | null;
-    const nav = navigator.language.slice(0, 2) as Lang;
-    if (saved && LANGS.includes(saved)) setLang(saved);
-    else if (LANGS.includes(nav)) setLang(nav);
-  }, []);
   const [cur, setCur] = useState<Currency>("EUR");
   useEffect(() => {
-    const saved = localStorage.getItem("currency") as Currency | null;
-    if (saved && CURRENCIES.includes(saved)) setCur(saved);
+    const savedLang = localStorage.getItem("lang") as Lang | null;
+    const savedCur = localStorage.getItem("currency") as Currency | null;
+    const nav = navigator.language.slice(0, 2) as Lang;
+    if (savedLang && LANGS.includes(savedLang)) setLang(savedLang);
+    else if (LANGS.includes(nav)) setLang(nav);
+    if (savedCur && CURRENCIES.includes(savedCur)) setCur(savedCur);
     else setCur(detectCurrency());
+    // Fine-tune via IP-country: the real country beats browser settings,
+    // but a saved manual choice is never overridden.
+    if (!savedLang || !savedCur) {
+      detectCountry().then((cc) => {
+        if (!cc) return;
+        if (!savedLang) {
+          const byCountry = langForCountry(cc);
+          if (byCountry) setLang(byCountry);
+        }
+        if (!savedCur) setCur(currencyForCountry(cc));
+      });
+    }
   }, []);
   useEffect(() => {
     localStorage.setItem("lang", lang);
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang === "en-us" ? "en-US" : lang === "en-ca" ? "en-CA" : lang;
   }, [lang]);
   useEffect(() => {
     localStorage.setItem("currency", cur);
   }, [cur]);
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
+  const signupUrl = SIGNUP_URLS[cur];
   const price = fmtMoney("247", lang, cur);
   const anchor = fmtMoney("5000", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
@@ -110,12 +121,12 @@ function Index() {
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
             <select aria-label="Language" value={lang} onChange={(e) => setLang(e.target.value as Lang)} className="rounded-full border border-border bg-card px-2.5 py-2 text-xs uppercase tracking-widest sm:px-3">
-              {LANGS.map((l) => <option key={l} value={l}>{LANG_FLAG[l]} {l.toUpperCase()}</option>)}
+              {LANGS.map((l) => <option key={l} value={l}>{LANG_FLAG[l]} {LANG_LABEL[l]}</option>)}
             </select>
             <select aria-label="Currency" value={cur} onChange={(e) => setCur(e.target.value as Currency)} className="rounded-full border border-border bg-card px-2.5 py-2 text-xs uppercase tracking-widest sm:px-3">
-              {CURRENCIES.map((c) => <option key={c} value={c}>{CURRENCY_SYMBOL[c]} {c}</option>)}
+              {CURRENCIES.map((c) => <option key={c} value={c}>{CURRENCY_FLAG[c]} {CURRENCY_SYMBOL[c]} {c}</option>)}
             </select>
-            <a href={SIGNUP_URL} className="btn-lux !px-5 !py-2.5 hidden sm:inline-flex">{t.cta}</a>
+            <a href={signupUrl} className="btn-lux !px-5 !py-2.5 hidden sm:inline-flex">{t.cta}</a>
           </div>
         </div>
       </header>
@@ -133,7 +144,7 @@ function Index() {
               </h1>
               <p className="mt-8 max-w-xl text-lg text-muted-foreground">{t.heroSub}</p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={SIGNUP_URL} className="btn-lux">{t.cta} — {price} <ArrowRight className="h-4 w-4" /></a>
+                <a href={signupUrl} className="btn-lux">{t.cta} — {price} <ArrowRight className="h-4 w-4" /></a>
                 <a href="#results" className="btn-ghost-lux">{t.heroSecondary}</a>
               </div>
               <div className="mt-10 flex items-center gap-3 text-sm text-muted-foreground">
@@ -243,7 +254,7 @@ function Index() {
               <ul className="mt-8 space-y-3 text-left">
                 {t.includes.map((i) => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{i}</li>)}
               </ul>
-              <a href={SIGNUP_URL} className="btn-lux mt-10 w-full">{t.cta} <ArrowRight className="h-4 w-4" /></a>
+              <a href={signupUrl} className="btn-lux mt-10 w-full">{t.cta} <ArrowRight className="h-4 w-4" /></a>
               <p className="mt-4 text-xs text-muted-foreground">{t.guarantee}</p>
             </div>
           </div>
@@ -270,7 +281,7 @@ function Index() {
           <div className="relative mx-auto max-w-3xl px-6">
             <h2 className="text-5xl md:text-6xl">{t.finalTitle}</h2>
             <p className="mt-6 text-lg text-muted-foreground">{t.finalSub}</p>
-            <a href={SIGNUP_URL} className="btn-lux mt-10">{t.cta} — {price}</a>
+            <a href={signupUrl} className="btn-lux mt-10">{t.cta} — {price}</a>
           </div>
         </section>
       </main>
