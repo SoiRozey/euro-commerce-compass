@@ -56,7 +56,8 @@ const nl: Dict = {
   servicesEyebrow: "De one-stop-shop",
   servicesTitle: "Wat je probleem ook is, wij hebben iemand voor je",
   services: [
-    ["Payment holds", "Stripe, Shopify Payments of PayPal vastgezet? Wij lossen het op — en we werken ook met een private payment provider."],
+    ["Payment holds", "Stripe, Shopify Payments of PayPal vastgezet? Wij lossen het op."],
+    ["Private payment provider", "Eigen private payment provider: stabiel afrekenen zonder plotselinge holds of reserves."],
     ["Agency ad accounts", "Ad account eruit gevallen? Direct toegang via ons ad agency netwerk."],
     ["Boekhouding & btw", "Boekhouders en btw-specialisten die e-commerce écht begrijpen."],
     ["Company formation", "Bedrijf opzetten in NL, HK, UK, US of Dubai — goed geregeld."],
@@ -122,7 +123,8 @@ const en: Dict = {
   servicesEyebrow: "The one-stop shop",
   servicesTitle: "Whatever your problem, we have someone for you",
   services: [
-    ["Payment holds", "Stripe, Shopify Payments or PayPal frozen? We get it solved — and we also work with a private payment provider."],
+    ["Payment holds", "Stripe, Shopify Payments or PayPal frozen? We get it solved."],
+    ["Private payment provider", "Our own private payment provider: stable checkout without sudden holds or reserves."],
     ["Agency ad accounts", "Ad account banned? Instant access via our ad agency network."],
     ["Accounting & VAT", "Accountants and VAT specialists who truly understand e-commerce."],
     ["Company formation", "Set up your company in HK, the UK, US or Dubai — done right."],
@@ -188,7 +190,8 @@ const de: Dict = {
   servicesEyebrow: "Der One-Stop-Shop",
   servicesTitle: "Egal welches Problem — wir haben jemanden für dich",
   services: [
-    ["Payment Holds", "Stripe, Shopify Payments oder PayPal eingefroren? Wir lösen es — und wir arbeiten außerdem mit einem privaten Payment-Provider."],
+    ["Payment Holds", "Stripe, Shopify Payments oder PayPal eingefroren? Wir lösen es."],
+    ["Privater Payment-Provider", "Unser eigener privater Payment-Provider: stabile Zahlungen ohne plötzliche Holds."],
     ["Agency-Werbekonten", "Werbekonto gesperrt? Sofortiger Zugang über unser Agency-Netzwerk."],
     ["Buchhaltung & USt.", "Steuerberater, die E-Commerce wirklich verstehen."],
     ["Firmengründung", "Gründung in HK, UK, USA oder Dubai — richtig gemacht."],
@@ -254,7 +257,8 @@ const fr: Dict = {
   servicesEyebrow: "Le guichet unique",
   servicesTitle: "Quel que soit ton problème, on a quelqu'un pour toi",
   services: [
-    ["Payment holds", "Stripe, Shopify Payments ou PayPal bloqué ? On le règle — et on travaille aussi avec un prestataire de paiement privé."],
+    ["Payment holds", "Stripe, Shopify Payments ou PayPal bloqué ? On le règle."],
+    ["Prestataire de paiement privé", "Notre propre prestataire privé : paiements stables, sans blocages soudains."],
     ["Comptes pub agence", "Compte pub banni ? Accès immédiat via notre réseau d'agences."],
     ["Comptabilité & TVA", "Des comptables qui comprennent vraiment l'e-commerce."],
     ["Création de société", "HK, UK, USA ou Dubaï — bien fait."],
@@ -320,7 +324,8 @@ const es: Dict = {
   servicesEyebrow: "El one-stop-shop",
   servicesTitle: "Sea cual sea tu problema, tenemos a alguien",
   services: [
-    ["Payment holds", "¿Stripe, Shopify Payments o PayPal bloqueado? Lo resolvemos — y también trabajamos con un procesador de pagos privado."],
+    ["Payment holds", "¿Stripe, Shopify Payments o PayPal bloqueado? Lo resolvemos."],
+    ["Procesador de pagos privado", "Nuestro propio procesador privado: cobros estables sin bloqueos repentinos."],
     ["Cuentas de agencia", "¿Cuenta publicitaria baneada? Acceso inmediato vía agencia."],
     ["Contabilidad e IVA", "Contables que entienden el e-commerce."],
     ["Creación de empresa", "HK, UK, EE. UU. o Dubái — bien hecho."],
