@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, X, Upload, Crown, ArrowRight, Star } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
+import kiki from "@/assets/kiki.png.asset.json";
 import heroTex from "@/assets/hero-texture.jpg";
 import { CURRENCIES, CURRENCY_FLAG, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, LANG_LABEL, currencyForCountry, detectCountry, detectCurrency, fmtMoney, langForCountry, localize, type Currency, type Lang } from "@/lib/i18n";
 import { SIGNUP_URLS } from "@/lib/site";
@@ -39,10 +40,9 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-function Photo({ id, label }: { id: string; label: string }) {
-  const [src, setSrc] = useState<string | null>(null);
+function Photo({ id, label, badge }: { id: string; label: string; badge?: string }) {
+  const [src, setSrc] = useState<string>(kiki.url);
   const ref = useRef<HTMLInputElement>(null);
-  useEffect(() => setSrc(localStorage.getItem(`photo-${id}`)), [id]);
   const onFile = (f?: File) => {
     if (!f) return;
     const r = new FileReader();
@@ -54,16 +54,20 @@ function Photo({ id, label }: { id: string; label: string }) {
     r.readAsDataURL(f);
   };
   return (
-    <button type="button" onClick={() => ref.current?.click()} className="group relative block aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-dial">
-      {src ? (
-        <img src={src} alt={label} className="h-full w-full object-cover" />
-      ) : (
-        <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
-          <Upload className="h-6 w-6 text-rose" />
-          <span className="text-xs uppercase tracking-widest">{label}</span>
-        </div>
-      )}
+    <button type="button" onClick={() => ref.current?.click()} className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl p-[3px] bg-rose-gradient shadow-glow">
+      <span className="relative block h-full w-full overflow-hidden rounded-[calc(1rem-2px)]">
+        <img src={src} alt={label} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+        {badge && (
+          <span className="absolute bottom-4 left-4 rounded-full border border-border bg-background/85 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-rose-light backdrop-blur">
+            {badge}
+          </span>
+        )}
+        <span className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background/70 opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
+          <Upload className="h-3.5 w-3.5 text-rose" />
+        </span>
+      </span>
       <input ref={ref} type="file" accept="image/*" hidden onChange={(e) => onFile(e.target.files?.[0])} />
+      <span className="sr-only">{label}</span>
     </button>
   );
 }
@@ -195,7 +199,7 @@ function Index() {
           <div className="mx-auto max-w-7xl px-6">
             <p className="eyebrow text-center">{t.servicesEyebrow}</p>
             <h2 className="mx-auto mt-4 max-w-3xl text-center text-4xl md:text-5xl">{t.servicesTitle}</h2>
-            <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
               {t.services.map(([title, d], i) => (
                 <div key={title} className="bg-background p-7 transition-colors hover:bg-card">
                   <span className="font-display text-3xl text-rose-gradient">{String(i + 1).padStart(2, "0")}</span>
@@ -230,11 +234,12 @@ function Index() {
           <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[1fr_1.3fr]">
             <div>
               <p className="eyebrow">{t.aboutEyebrow}</p>
-              <h2 className="mt-4 text-4xl md:text-5xl">{t.aboutTitle}</h2>
-              <div className="mt-8"><Photo id="about" label={t.upload} /></div>
+              <h2 className="mt-4 text-5xl md:text-6xl">{t.aboutTitle}</h2>
+              <p className="eyebrow mt-6">{t.founder}</p>
+              <div className="mt-8"><Photo id="about" label={t.upload} badge={t.founder} /></div>
             </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:pt-12">
-              {t.about.map((p, i) => <p key={i} className={i === 0 ? "text-foreground" : ""}>{p}</p>)}
+            <div className="space-y-6 font-display text-xl leading-relaxed md:pt-10">
+              {t.about.map((p, i) => <p key={i} className={i === 0 ? "text-2xl italic text-rose-light" : i === 1 ? "text-foreground" : "text-muted-foreground"}>{p}</p>)}
             </div>
           </div>
         </section>
