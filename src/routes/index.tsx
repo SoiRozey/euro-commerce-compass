@@ -239,7 +239,8 @@ function Index() {
               <div className="mt-8"><Photo id="about" label={t.upload} badge={t.founder} /></div>
             </div>
             <div className="space-y-6 font-display text-xl leading-relaxed md:pt-10">
-              {t.about.map((p, i) => <p key={i} className={i === 0 ? "text-2xl italic text-rose-light" : i === 1 ? "text-foreground" : "text-muted-foreground"}>{p}</p>)}
+              {/* Story order across all languages: coach story → hobby grew into the group → Kiki himself → the doubt the visitor feels → the fair chance */}
+              {[0, 2, 4, 1, 3].map((n, i) => <p key={n} className={i === 0 ? "text-2xl italic text-rose-light" : i === 3 ? "text-foreground" : "text-muted-foreground"}>{t.about[n]}</p>)}
             </div>
           </div>
         </section>
