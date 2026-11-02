@@ -22,12 +22,15 @@ describe("flat multi-currency pricing", () => {
 
   it("resolves every price token in the dict, with no hardcoded euro signs left", () => {
     const en = localize(
-      { hero: "one-time {P}", vs: "{A} – {T} upfront", sym: "{SYM}100K+" },
+      { hero: "one-time {P}", vs: "{A} – {T} upfront", sym: "{SYM}100K+", extra: "{SYM}15K and {SYM}1K to {SYM}2K" },
       "en",
       "GBP"
     );
-    expect(en).toEqual({ hero: "one-time £247", vs: "£5,000 – £10,000 upfront", sym: "£100K+" });
+    expect(en).toEqual({ hero: "one-time £247", vs: "£5,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K" });
     expect(JSON.stringify(DICT)).not.toContain("€");
-    expect(JSON.stringify(DICT)).not.toMatch(/\{[A-Z]+\}/);
+    for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
+      const resolved = JSON.stringify(localize(DICT[lang], lang, "EUR"));
+      expect(resolved).not.toMatch(/\{[A-Z]+\}/);
+    }
   });
 });
