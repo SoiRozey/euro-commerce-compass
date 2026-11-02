@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png.asset.json";
 import kiki from "@/assets/kiki.png.asset.json";
 import heroTex from "@/assets/hero-texture.jpg";
 import { CURRENCIES, CURRENCY_FLAG, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, LANG_LABEL, currencyForCountry, detectCountry, detectCurrency, fmtMoney, langForCountry, localize, type Currency, type Lang } from "@/lib/i18n";
-import { SIGNUP_URLS } from "@/lib/site";
+import { signupUrlFor } from "@/lib/site";
 
 const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €247 eenmalig";
 const DESC =
@@ -75,6 +75,7 @@ function Photo({ id, label, badge }: { id: string; label: string; badge?: string
 function Index() {
   const [lang, setLang] = useState<Lang>("nl");
   const [cur, setCur] = useState<Currency>("EUR");
+  const [country, setCountry] = useState<string | null>(null);
   useEffect(() => {
     const savedLang = localStorage.getItem("lang") as Lang | null;
     const savedCur = localStorage.getItem("currency") as Currency | null;
@@ -88,6 +89,7 @@ function Index() {
     if (!savedLang || !savedCur) {
       detectCountry().then((cc) => {
         if (!cc) return;
+        setCountry(cc);
         if (!savedLang) {
           const byCountry = langForCountry(cc);
           if (byCountry) setLang(byCountry);
@@ -104,7 +106,7 @@ function Index() {
     localStorage.setItem("currency", cur);
   }, [cur]);
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
-  const signupUrl = SIGNUP_URLS[cur];
+  const signupUrl = signupUrlFor(country, cur);
   const price = fmtMoney("247", lang, cur);
   const anchor = fmtMoney("5000", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
