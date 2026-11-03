@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DICT, fmtMoney, localize } from "@/lib/i18n";
+import { DICT, currencyForCountry, fmtMoney, langForCountry, localize } from "@/lib/i18n";
 import { SIGNUP_URLS, signupUrlFor } from "@/lib/site";
 
 describe("flat multi-currency pricing", () => {
@@ -35,12 +35,13 @@ describe("flat multi-currency pricing", () => {
     }
   });
 
-  it("pricing card shows the 7,000 anchor struck through the 247 price", () => {
+  it("pricing card shows the 7,000 anchor, the item values and the 15,179 total", () => {
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const t = localize(DICT[lang], lang, "EUR");
-      expect(t.includesTotal).toBe("Totale waarde = €15.179+" === t.includesTotal ? t.includesTotal : t.includesTotal);
-      expect(t.includesTotal).toContain("15.179");
       expect(t.value).toContain("€15.000");
+      expect(t.includesTotal).toContain("15.179");
+      expect(t.includes.some((i) => i.includes("€2.997"))).toBe(true);
+      expect(t.includes.some((i) => i.includes("€497"))).toBe(true);
     }
   });
 });
@@ -69,7 +70,7 @@ describe("per-country and per-currency signup links", () => {
     expect(signupUrlFor("NL", "EUR")).toBe(SIGNUP_URLS.EUR);
   });
 
-  it("uses the country-specific link when provided", () => {
+  it("works without a known country too", () => {
     expect(signupUrlFor(null, "EUR")).toBe(SIGNUP_URLS.EUR);
   });
 });
