@@ -108,7 +108,7 @@ function Index() {
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
   const signupUrl = signupUrlFor(country, cur);
   const price = fmtMoney("247", lang, cur);
-  const anchor = fmtMoney("5000", lang, cur);
+  const anchor = fmtMoney("7000", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
 
   return (
@@ -262,7 +262,8 @@ function Index() {
               <ul className="mt-8 space-y-3 text-left">
                 {t.includes.map((i) => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{i}</li>)}
               </ul>
-              <a href={signupUrl} className="btn-lux mt-10 w-full">{t.cta} <ArrowRight className="h-4 w-4" /></a>
+              <p className="mt-6 border-t border-border pt-4 font-display text-lg text-rose-gradient">{t.includesTotal}</p>
+              <a href={signupUrl} className="btn-lux mt-8 w-full">{t.cta} — {price} <ArrowRight className="h-4 w-4" /></a>
               <p className="mt-4 text-xs text-muted-foreground">{t.guarantee}</p>
             </div>
           </div>
