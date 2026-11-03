@@ -31,6 +31,7 @@ type Dict = {
   once: string;
   value: string;
   includes: string[];
+  includesTotal: string;
   guarantee: string;
   faqTitle: string;
   faq: [string, string][];
@@ -51,9 +52,9 @@ const nl: Dict = {
   stats: [["24/7", "Community actief"], ["{P}", "Eenmalig, geen abonnement"], ["A–Z", "Partners voor elk probleem"], ["{SYM}100K+", "Omzet per maand bij leden"]],
   vsTitle: "Waarom die {A}+ in je eigen business moeten steken — en niet in een coach",
   vsOthers: "Andere coaches",
-  vsOthersItems: ["{A} – {T} vooraf", "Eén uurtje per maand, als je geluk hebt", "Komen niet opdagen", "Geen hulp bij echte problemen"],
+  vsOthersItems: ["Minimaal {A} vooraf investeren", "Onnodige upsells naar dingen die je niet nodig hebt — alleen maar om zelf commissie te verdienen", "Jij bent hun product: zij verdienen het meest aan jou", "Eén uurtje per maand, als je geluk hebt", "Komen niet opdagen", "Geen hulp bij echte problemen"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["Eenmalig {P} — lifetime access", "24/7 actieve community — nooit wachten", "Partners voor elk probleem van A tot Z", "Gratis onboarding", "Skool access", "Maandelijkse expert call + kwartaal meetup"],
+  vsUsItems: ["Eenmalig {P} — lifetime access", "24/7 actieve community — nooit alleen bouwen", "Compleet A–Z-partnernetwerk voor elke fase van je business", "Praktische oplossingen voor elke e-com uitdaging", "Gratis persoonlijke onboarding", "Levenslange toegang tot de complete e-commerce videocursus", "Maandelijkse expert calls met experts uit de branche", "Exclusieve meetups elk kwartaal", "Exit-strategieën: verkoop je store direct aan ons", "Geen onnodige upsells of dure upgrades", "Geen verborgen kosten of abonnementen", "Wij staan voor je klaar — vanaf dag één en voor de lange termijn"],
   servicesEyebrow: "De one-stop-shop",
   servicesTitle: "Wat je probleem ook is, wij hebben iemand voor je",
   services: [
@@ -93,8 +94,8 @@ const nl: Dict = {
   pricingEyebrow: "Eén prijs. Alles inbegrepen.",
   pricingTitle: "Levenslange toegang",
   once: "eenmalig",
-  value: "Waarde: tienduizenden {SYM} aan besparingen en directe hulp",
-  includes: ["24/7 toegang tot de community", "Volledig partnernetwerk van A tot Z", "Maandelijkse expert call", "Elk kwartaal een live meetup", "Hulp bij payment holds, ad accounts, btw & meer", "Geen abonnement, geen verborgen kosten"],
+  value: "Waarde: {V}+ aan e-commercekennis, expertise, connecties en directe hulp — plus de mogelijkheid om tienduizenden {SYM} te besparen dankzij de juiste partners en oplossingen.",
+  includes: ["24/7 toegang tot de community — waarde {V1}", "Compleet A–Z-partnernetwerk — waarde {V2}", "Maandelijkse expert calls — waarde {V3}", "Live meetup elk kwartaal — waarde {V4}", "Hulp bij payment holds, ad accounts, btw en meer — waarde {V5}", "Levenslange toegang tot de videocursus — waarde {V6}", "Persoonlijke onboarding — waarde {V7}", "Geen abonnement, geen verborgen kosten"],
   guarantee: "Veilig betalen · Direct toegang",
   faqTitle: "Veelgestelde vragen",
   faq: [
@@ -122,9 +123,9 @@ const en: Dict = {
   stats: [["24/7", "Active community"], ["{P}", "One-time, no subscription"], ["A–Z", "Partners for every problem"], ["{SYM}100K+", "Monthly revenue by members"]],
   vsTitle: "Why that {A}+ should go into your own business — not into a coach",
   vsOthers: "Other coaches",
-  vsOthersItems: ["{A} – {T} upfront", "One hour a month, if you're lucky", "Don't show up", "No help with real problems"],
+  vsOthersItems: ["Minimum {A} upfront", "Unnecessary upsells for things you don't need — just so they earn a commission", "You are their product: they earn the most from you", "One hour a month, if you're lucky", "Don't show up", "No help with real problems"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["One-time {P} — lifetime access", "24/7 active community — never wait", "Partners for every problem, A to Z", "Free onboarding", "Skool access", "Monthly expert call + quarterly meetup"],
+  vsUsItems: ["One-time {P} — lifetime access", "24/7 active community — never build alone", "Complete A–Z partner network for every stage of your business", "Practical solutions for every e-com challenge", "Free personal onboarding", "Lifetime access to our complete e-commerce video course", "Monthly expert calls with industry professionals", "Exclusive quarterly meetups", "Exit strategies — sell your store directly to us", "No unnecessary upsells or expensive upgrades", "No hidden fees or monthly subscriptions", "We're here for you from day one and for the long run!"],
   servicesEyebrow: "The one-stop shop",
   servicesTitle: "Whatever your problem, we have someone for you",
   services: [
@@ -164,8 +165,8 @@ const en: Dict = {
   pricingEyebrow: "One price. Everything included.",
   pricingTitle: "Lifetime access",
   once: "one-time",
-  value: "Value: tens of thousands of {SYM} in savings and direct help",
-  includes: ["24/7 community access", "Full A–Z partner network", "Monthly expert call", "Live meetup every quarter", "Help with payment holds, ad accounts, VAT & more", "No subscription, no hidden fees"],
+  value: "Value: {V}+ of e-commerce knowledge, expertise, connections and direct help — plus the chance to save tens of thousands of {SYM} with the right partners and solutions.",
+  includes: ["24/7 community access — value {V1}", "Complete A–Z partner network — value {V2}", "Monthly expert calls — value {V3}", "Live meetup every quarter — value {V4}", "Help with payment holds, ad accounts, VAT & more — value {V5}", "Lifetime access to the video course — value {V6}", "Personal onboarding — value {V7}", "No subscription, no hidden fees"],
   guarantee: "Secure payment · Instant access",
   faqTitle: "Frequently asked questions",
   faq: [
@@ -193,9 +194,9 @@ const de: Dict = {
   stats: [["24/7", "Aktive Community"], ["{P}", "Einmalig, kein Abo"], ["A–Z", "Partner für jedes Problem"], ["{SYM}100K+", "Monatsumsatz unserer Mitglieder"]],
   vsTitle: "Warum diese {A}+ in dein eigen Business gehören — und nicht in einen Coach",
   vsOthers: "Andere Coaches",
-  vsOthersItems: ["{A} – {T} im Voraus", "Eine Stunde im Monat, wenn überhaupt", "Tauchen nicht auf", "Keine Hilfe bei echten Problemen"],
+  vsOthersItems: ["Mindestens {A} im Voraus", "Unnötige Upsells für Dinge, die du nicht brauchst — nur für die eigene Provision", "Du bist ihr Produkt: Sie verdienen am meisten an dir", "Eine Stunde im Monat, wenn überhaupt", "Tauchen nicht auf", "Keine Hilfe bei echten Problemen"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["Einmalig {P} — Lifetime-Access", "24/7 aktive Community — nie warten", "Partner für jedes Problem von A bis Z", "Gratis Onboarding", "Skool-Zugang", "Monatlicher Expert-Call + Quartals-Meetup"],
+  vsUsItems: ["Einmalig {P} — Lifetime-Access", "24/7 aktive Community — nie allein bauen", "Komplettes Partnernetzwerk A–Z für jede Phase deines Business", "Praktische Lösungen für jede E-Commerce-Herausforderung", "Gratis persönliches Onboarding", "Lebenslangen Zugang zum kompletten E-Commerce-Videokurs", "Monatliche Expert-Calls mit Branchenexperten", "Exklusive Quartals-Meetups", "Exit-Strategien: Verkauf deinen Store direkt an uns", "Keine unnötigen Upsells oder teuren Upgrades", "Keine versteckten Kosten oder Abos", "Wir sind für dich da — ab Tag eins und auf lange Sicht!"],
   servicesEyebrow: "Der One-Stop-Shop",
   servicesTitle: "Egal welches Problem — wir haben jemanden für dich",
   services: [
@@ -235,8 +236,8 @@ const de: Dict = {
   pricingEyebrow: "Ein Preis. Alles inklusive.",
   pricingTitle: "Lebenslanger Zugang",
   once: "einmalig",
-  value: "Wert: Zehntausende {SYM} an Ersparnissen und direkter Hilfe",
-  includes: ["24/7 Community-Zugang", "Komplettes Partnernetzwerk A–Z", "Monatlicher Expert-Call", "Live-Meetup jedes Quartal", "Hilfe bei Payment Holds, Werbekonten, USt. & mehr", "Kein Abo, keine versteckten Kosten"],
+  value: "Wert: {V}+ an E-Commerce-Wissen, Expertise, Kontakten und direkter Hilfe — plus die Chance, zehntausende {SYM} mit den richtigen Partnern und Lösungen zu sparen.",
+  includes: ["24/7 Community-Zugang — Wert {V1}", "Komplettes Partnernetzwerk A–Z — Wert {V2}", "Monatliche Expert-Calls — Wert {V3}", "Live-Meetup jedes Quartal — Wert {V4}", "Hilfe bei Payment Holds, Werbekonten, USt. & mehr — Wert {V5}", "Lebenslangen Zugang zum Videokurs — Wert {V6}", "Persönliches Onboarding — Wert {V7}", "Kein Abo, keine versteckten Kosten"],
   guarantee: "Sichere Zahlung · Sofortiger Zugang",
   faqTitle: "Häufige Fragen",
   faq: [
@@ -264,9 +265,9 @@ const fr: Dict = {
   stats: [["24/7", "Communauté active"], ["{P}", "Paiement unique"], ["A–Z", "Partenaires pour tout"], ["{SYM}100K+", "CA mensuel des membres"]],
   vsTitle: "Pourquoi ces {A}+ doivent aller dans ton business — et pas dans un coach",
   vsOthers: "Les autres coachs",
-  vsOthersItems: ["{A} – {T} d'avance", "Une heure par mois, au mieux", "Ne se présentent pas", "Aucune aide sur les vrais problèmes"],
+  vsOthersItems: ["Au moins {A} d'avance", "Upsells inutiles vers des choses dont tu n'as pas besoin — juste pour toucher une commission", "Tu es leur produit : c'est sur toi qu'ils gagnent le plus", "Une heure par mois, au mieux", "Ne se présentent pas", "Aucune aide sur les vrais problèmes"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["{P} une fois — accès à vie", "Communauté active 24/7", "Partenaires pour chaque problème", "Onboarding gratuit", "Accès Skool", "Expert call mensuel + meetup trimestriel"],
+  vsUsItems: ["{P} une fois — accès à vie", "Communauté active 24/7 — jamais seul", "Réseau de partenaires A–Z pour chaque étape de ton business", "Solutions concrètes pour chaque défi e-commerce", "Onboarding personnel gratuit", "Accès à vie à la formation vidéo e-commerce complète", "Expert calls mensuels avec des pros du secteur", "Meetups exclusifs chaque trimestre", "Stratégies de sortie : vends ta boutique directement à nous", "Aucun upsell inutile ni upgrade coûteux", "Aucun frais caché ni abonnement", "On est là pour toi — dès le premier jour et sur la durée !"],
   servicesEyebrow: "Le guichet unique",
   servicesTitle: "Quel que soit ton problème, on a quelqu'un pour toi",
   services: [
@@ -335,9 +336,9 @@ const es: Dict = {
   stats: [["24/7", "Comunidad activa"], ["{P}", "Pago único"], ["A–Z", "Socios para todo"], ["{SYM}100K+", "Facturación mensual de miembros"]],
   vsTitle: "Por qué esos {A}+ deben ir a tu negocio — y no a un coach",
   vsOthers: "Otros coaches",
-  vsOthersItems: ["{A} – {T} por adelantado", "Una hora al mes, con suerte", "No aparecen", "Sin ayuda real"],
+  vsOthersItems: ["Mínimo {A} por adelantado", "Upsells innecesarios a cosas que no necesitas — solo para que ellos ganen una comisión", "Tú eres su producto: ellos ganan más contigo", "Una hora al mes, con suerte", "No aparecen", "Sin ayuda real"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["{P} una vez — acceso de por vida", "Comunidad activa 24/7", "Socios para cada problema", "Onboarding gratis", "Acceso a Skool", "Expert call mensual + meetup trimestral"],
+  vsUsItems: ["{P} una vez — acceso de por vida", "Comunidad activa 24/7 — nunca solo", "Red de socios A–Z completa para cada etapa de tu negocio", "Soluciones prácticas para cada reto del e-commerce", "Onboarding personal gratis", "Acceso de por vida al curso de vídeo completo de e-commerce", "Expert calls mensuales con profesionales del sector", "Meetups exclusivos cada trimestre", "Estrategias de salida: vende tu tienda directamente a nosotros", "Sin upsells innecesarios ni mejoras caras", "Sin costes ocultos ni suscripciones", "Estamos contigo — desde el primer día y a largo plazo!"],
   servicesEyebrow: "El one-stop-shop",
   servicesTitle: "Sea cual sea tu problema, tenemos a alguien",
   services: [
@@ -431,9 +432,18 @@ export function fmtMoney(digits: string, lang: Lang, cur: Currency): string {
 export function tt(template: string, lang: Lang, cur: Currency): string {
   return template
     .replaceAll("{P}", fmtMoney("247", lang, cur))
-    .replaceAll("{A}", fmtMoney("5000", lang, cur))
+    .replaceAll("{A}", fmtMoney("7000", lang, cur))
     .replaceAll("{F}", fmtMoney("6000", lang, cur))
     .replaceAll("{T}", fmtMoney("10000", lang, cur))
+    .replaceAll("{V}", fmtMoney("15000", lang, cur))
+    .replaceAll("{V1}", fmtMoney("2997", lang, cur))
+    .replaceAll("{V2}", fmtMoney("4497", lang, cur))
+    .replaceAll("{V3}", fmtMoney("2497", lang, cur))
+    .replaceAll("{V4}", fmtMoney("1497", lang, cur))
+    .replaceAll("{V5}", fmtMoney("1197", lang, cur))
+    .replaceAll("{V6}", fmtMoney("1997", lang, cur))
+    .replaceAll("{V7}", fmtMoney("497", lang, cur))
+    .replaceAll("{VT}", fmtMoney("15179", lang, cur))
     .replaceAll("{SYM}", CURRENCY_SYMBOL[cur]);
 }
 
