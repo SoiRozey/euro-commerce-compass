@@ -96,6 +96,7 @@ const nl: Dict = {
   once: "eenmalig",
   value: "Waarde: {V}+ aan e-commercekennis, expertise, connecties en directe hulp — plus de mogelijkheid om tienduizenden {SYM} te besparen dankzij de juiste partners en oplossingen.",
   includes: ["24/7 toegang tot de community — waarde {V1}", "Compleet A–Z-partnernetwerk — waarde {V2}", "Maandelijkse expert calls — waarde {V3}", "Live meetup elk kwartaal — waarde {V4}", "Hulp bij payment holds, ad accounts, btw en meer — waarde {V5}", "Levenslange toegang tot de videocursus — waarde {V6}", "Persoonlijke onboarding — waarde {V7}", "Geen abonnement, geen verborgen kosten"],
+  includesTotal: "Totale waarde = {VT}+",
   guarantee: "Veilig betalen · Direct toegang",
   faqTitle: "Veelgestelde vragen",
   faq: [
@@ -167,6 +168,7 @@ const en: Dict = {
   once: "one-time",
   value: "Value: {V}+ of e-commerce knowledge, expertise, connections and direct help — plus the chance to save tens of thousands of {SYM} with the right partners and solutions.",
   includes: ["24/7 community access — value {V1}", "Complete A–Z partner network — value {V2}", "Monthly expert calls — value {V3}", "Live meetup every quarter — value {V4}", "Help with payment holds, ad accounts, VAT & more — value {V5}", "Lifetime access to the video course — value {V6}", "Personal onboarding — value {V7}", "No subscription, no hidden fees"],
+  includesTotal: "Total value = {VT}+",
   guarantee: "Secure payment · Instant access",
   faqTitle: "Frequently asked questions",
   faq: [
@@ -238,6 +240,7 @@ const de: Dict = {
   once: "einmalig",
   value: "Wert: {V}+ an E-Commerce-Wissen, Expertise, Kontakten und direkter Hilfe — plus die Chance, zehntausende {SYM} mit den richtigen Partnern und Lösungen zu sparen.",
   includes: ["24/7 Community-Zugang — Wert {V1}", "Komplettes Partnernetzwerk A–Z — Wert {V2}", "Monatliche Expert-Calls — Wert {V3}", "Live-Meetup jedes Quartal — Wert {V4}", "Hilfe bei Payment Holds, Werbekonten, USt. & mehr — Wert {V5}", "Lebenslangen Zugang zum Videokurs — Wert {V6}", "Persönliches Onboarding — Wert {V7}", "Kein Abo, keine versteckten Kosten"],
+  includesTotal: "Gesamtwert = {VT}+",
   guarantee: "Sichere Zahlung · Sofortiger Zugang",
   faqTitle: "Häufige Fragen",
   faq: [
@@ -307,8 +310,9 @@ const fr: Dict = {
   pricingEyebrow: "Un prix. Tout inclus.",
   pricingTitle: "Accès à vie",
   once: "une fois",
-  value: "Valeur : des dizaines de milliers de {SYM} d'économies et d'aide directe",
-  includes: ["Accès communauté 24/7", "Réseau de partenaires A–Z", "Expert call mensuel", "Meetup chaque trimestre", "Aide payment holds, comptes pub, TVA…", "Sans abonnement"],
+  value: "Valeur : {V}+ de connaissances e-commerce, d'expertise, de contacts et d'aide directe — plus la possibilité d'économiser des dizaines de milliers de {SYM} grâce aux bons partenaires et solutions.",
+  includes: ["Accès communauté 24/7 — valeur {V1}", "Réseau de partenaires A–Z — valeur {V2}", "Expert calls mensuels — valeur {V3}", "Meetup chaque trimestre — valeur {V4}", "Aide payment holds, comptes pub, TVA… — valeur {V5}", "Accès à vie à la formation vidéo — valeur {V6}", "Onboarding personnel — valeur {V7}", "Sans abonnement, sans frais cachés"],
+  includesTotal: "Valeur totale = {VT}+",
   guarantee: "Paiement sécurisé · Accès immédiat",
   faqTitle: "Questions fréquentes",
   faq: [
@@ -378,8 +382,9 @@ const es: Dict = {
   pricingEyebrow: "Un precio. Todo incluido.",
   pricingTitle: "Acceso de por vida",
   once: "pago único",
-  value: "Valor: decenas de miles de {SYM} en ahorro y ayuda directa",
-  includes: ["Comunidad 24/7", "Red de socios A–Z", "Expert call mensual", "Meetup cada trimestre", "Ayuda con payment holds, cuentas, IVA…", "Sin suscripción"],
+  value: "Valor: {V}+ en conocimiento de e-commerce, experiencia, contactos y ayuda directa — más la posibilidad de ahorrar decenas de miles de {SYM} con los partners y soluciones adecuados.",
+  includes: ["Acceso a la comunidad 24/7 — valor {V1}", "Red de socios A–Z completa — valor {V2}", "Expert calls mensuales — valor {V3}", "Meetup cada trimestre — valor {V4}", "Ayuda con payment holds, cuentas de anuncios, IVA… — valor {V5}", "Acceso de por vida al curso de vídeo — valor {V6}", "Onboarding personal — valor {V7}", "Sin suscripción, sin costes ocultos"],
+  includesTotal: "Valor total = {VT}+",
   guarantee: "Pago seguro · Acceso inmediato",
   faqTitle: "Preguntas frecuentes",
   faq: [
