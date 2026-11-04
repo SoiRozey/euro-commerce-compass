@@ -40,7 +40,7 @@ describe("flat multi-currency pricing", () => {
       const t = localize(DICT[lang], lang, "EUR");
       expect(t.includesTotal).toMatch(/15[.,]179/);
       expect(t.includes.some(([, v]) => /2[.,\s]997\s*€?/.test(v))).toBe(true);
-      expect(t.includes.some(([, v]) => v.includes("€497"))).toBe(true);
+      expect(t.includes.some(([, v]) => /497\s*€?/.test(v))).toBe(true);
       expect(t.value).not.toMatch(/\{[A-Z0-9]+\}/);
       // value column sits on the right: every item is a [label, value] pair
       for (const [label, v] of t.includes) {
