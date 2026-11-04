@@ -90,10 +90,7 @@ function Index() {
       detectCountry().then((cc) => {
         if (!cc) return;
         setCountry(cc);
-        if (!savedLang) {
-          const byCountry = langForCountry(cc);
-          if (byCountry) setLang(byCountry);
-        }
+        if (!savedLang) setLang(langForCountry(cc));
         if (!savedCur) setCur(currencyForCountry(cc));
       });
     }
