@@ -82,6 +82,13 @@ describe("automatic country detection", () => {
     expect(langForCountry("US")).toBe("en-us");
     expect(langForCountry("CA")).toBe("en-ca");
   });
+
+  it("every other country gets English and USD", () => {
+    expect(langForCountry("TH")).toBe("en");
+    expect(currencyForCountry("TH")).toBe("USD");
+    expect(langForCountry("AE")).toBe("en");
+    expect(currencyForCountry("AE")).toBe("USD");
+  });
 });
 
 describe("per-country and per-currency signup links", () => {

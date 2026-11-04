@@ -469,22 +469,30 @@ export function localize<T>(node: T, lang: Lang, cur: Currency): T {
 // it to the real country on first visit. A manual choice is always saved and
 // never overridden.
 
+// Euro countries (eurozone + DACH/LI) pay in EUR; GB in GBP; every other
+// country in the world gets USD.
+const EUR_COUNTRIES = [
+  "NL", "BE", "LU", "DE", "AT", "CH", "LI", "FR", "MC", "ES", "AD", "PT", "IT", "SM", "VA", "MT",
+  "IE", "FI", "EE", "LV", "LT", "SK", "SI", "HR", "GR", "CY",
+];
+
 export function currencyForCountry(cc: string): Currency {
   const c = cc.toUpperCase();
   if (c === "GB") return "GBP";
-  if (["US", "CA", "AU", "NZ"].includes(c)) return "USD";
-  return "EUR";
+  if (EUR_COUNTRIES.includes(c)) return "EUR";
+  return "USD";
 }
 
 export function detectCurrency(): Currency {
   const region = (typeof navigator !== "undefined" ? navigator.language : "").split("-")[1]?.toUpperCase();
   const tz = typeof Intl !== "undefined" ? Intl.DateTimeFormat().resolvedOptions().timeZone : "";
   if (region === "GB" || tz === "Europe/London") return "GBP";
-  if (region && ["US", "CA", "AU", "NZ"].includes(region)) return "USD";
-  return "EUR";
+  if (tz.startsWith("Europe/")) return "EUR";
+  return "USD";
 }
 
-export function langForCountry(cc: string): Lang | null {
+// Countries with their own language version; every other country gets English.
+export function langForCountry(cc: string): Lang {
   const map: Record<string, Lang> = {
     NL: "nl", BE: "nl",
     DE: "de", AT: "de", CH: "de", LI: "de",
@@ -492,7 +500,7 @@ export function langForCountry(cc: string): Lang | null {
     ES: "es", MX: "es", AR: "es", CO: "es", CL: "es",
     GB: "en", US: "en-us", CA: "en-ca",
   };
-  return map[cc.toUpperCase()] ?? null;
+  return map[cc.toUpperCase()] ?? "en";
 }
 
 const CC_CACHE_KEY = "country";
