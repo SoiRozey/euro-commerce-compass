@@ -260,7 +260,12 @@ function Index() {
               <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{t.once}</p>
               <p className="mt-6 text-sm text-rose-light">{t.value}</p>
               <ul className="mt-8 space-y-3 text-left">
-                {t.includes.map((i) => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{i}</li>)}
+                {t.includes.map(([label, value]) => (
+                  <li key={label} className="flex items-center justify-between gap-4">
+                    <span className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-rose" />{label}</span>
+                    {value && <span className="shrink-0 whitespace-nowrap font-display text-sm text-rose-light">{value}</span>}
+                  </li>
+                ))}
               </ul>
               <p className="mt-6 border-t border-border pt-4 font-display text-lg text-rose-gradient">{t.includesTotal}</p>
               <a href={signupUrl} className="btn-lux mt-8 w-full">{t.cta} — {price} <ArrowRight className="h-4 w-4" /></a>

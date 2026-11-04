@@ -3,7 +3,7 @@ import type { Currency } from "@/lib/i18n";
 // One sign-up / checkout link per currency (fallback). Replace "#join" with
 // the real links.
 export const SIGNUP_URLS: Record<Currency, string> = {
-  EUR: "#join",
+  EUR: "https://whop.com/90daysecom-com/benelux-03-3da6/",
   USD: "#join",
   GBP: "#join",
 };
