@@ -1,6 +1,7 @@
 # Roadmap 90 Days Ecom Group
 
 ## Klaar
+- Vergelijkingspunt over opdringerige verkopers zonder eigen e-commerce-ervaring toegevoegd in alle talen
 - Overige landen gebruiken Amerikaans Engels (US-vlag) en USD; getest met gesimuleerde TH/AE/US/NL/GB-bezoekers
 - Andere coaches: beperkte persoonlijke hulp, geen verantwoordelijkheid, geen belang bij succes en gratis YouTube-basisinformatie toegevoegd in alle talen
 - 12 services: nr. 12 is nu "Lifetime videocursus" (was 24/7 beschikbaarheid); 2 private payment providers als eigen USP
@@ -15,6 +16,5 @@
 - FAQ: 6 vragen in 5 talen
 
 ## Open
-- Vergelijkingspunt over opdringerige verkopers zonder eigen e-commerce-ervaring toevoegen
 - Aparte Whop-links per land (nu gebruikt elk land de Benelux-link) — wacht op de links van Kiki
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"
