@@ -94,7 +94,7 @@ const nl: Dict = {
   pricingEyebrow: "Eén prijs. Alles inbegrepen.",
   pricingTitle: "Lifetime toegang",
   once: "eenmalig",
-  value: "Waarde: tienduizenden {SYM} aan besparingen, expertise, connecties en directe hulp.",
+  value: "Waarde: tienduizenden euro's aan besparingen, expertise, connecties en directe hulp.",
   includes: [["24/7 toegang tot de community", "waarde {V1}"], ["Compleet A–Z-partnernetwerk", "waarde {V2}"], ["Maandelijkse expert calls", "waarde {V3}"], ["Live meetup elk kwartaal", "waarde {V4}"], ["Hulp bij payment holds, ad accounts, btw en meer", "waarde {V5}"], ["Lifetime toegang tot de videocursus", "waarde {V6}"], ["Persoonlijke onboarding", "waarde {V7}"], ["Geen abonnement, geen verborgen kosten", ""]],
   includesTotal: "Totale waarde = {VT}+",
   guarantee: "Veilig betalen · Direct toegang",
