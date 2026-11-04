@@ -15,5 +15,6 @@
 - FAQ: 6 vragen in 5 talen
 
 ## Open
+- Vergelijkingspunt over opdringerige verkopers zonder eigen e-commerce-ervaring toevoegen
 - Aparte Whop-links per land (nu gebruikt elk land de Benelux-link) — wacht op de links van Kiki
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"
