@@ -48,7 +48,6 @@ describe("flat multi-currency pricing", () => {
         expect(label.length).toBeGreaterThan(0);
         expect(typeof v).toBe("string");
       }
-      expect(t.value).toContain("tienduizenden".slice(0, 0) || t.value);
     }
   });
 
