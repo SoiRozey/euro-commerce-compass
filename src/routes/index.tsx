@@ -77,31 +77,30 @@ function Index() {
   const [cur, setCur] = useState<Currency>("EUR");
   const [country, setCountry] = useState<string | null>(null);
   useEffect(() => {
-    const savedLang = localStorage.getItem("lang") as Lang | null;
-    const savedCur = localStorage.getItem("currency") as Currency | null;
+    // Only a manual pick from the menus is saved (new keys, so older
+    // auto-saved values are ignored and the country decides again).
+    const savedLang = localStorage.getItem("lang-choice") as Lang | null;
+    const savedCur = localStorage.getItem("currency-choice") as Currency | null;
     const nav = navigator.language.slice(0, 2) as Lang;
     if (savedLang && LANGS.includes(savedLang)) setLang(savedLang);
     else if (LANGS.includes(nav)) setLang(nav);
+    else setLang("en");
     if (savedCur && CURRENCIES.includes(savedCur)) setCur(savedCur);
     else setCur(detectCurrency());
-    // Fine-tune via IP-country: the real country beats browser settings,
+    // The visitor's real country (IP) beats browser settings,
     // but a saved manual choice is never overridden.
-    if (!savedLang || !savedCur) {
-      detectCountry().then((cc) => {
-        if (!cc) return;
-        setCountry(cc);
-        if (!savedLang) setLang(langForCountry(cc));
-        if (!savedCur) setCur(currencyForCountry(cc));
-      });
-    }
+    detectCountry().then((cc) => {
+      if (!cc) return;
+      setCountry(cc);
+      if (!savedLang) setLang(langForCountry(cc));
+      if (!savedCur) setCur(currencyForCountry(cc));
+    });
   }, []);
   useEffect(() => {
-    localStorage.setItem("lang", lang);
     document.documentElement.lang = lang === "en-us" ? "en-US" : lang === "en-ca" ? "en-CA" : lang;
   }, [lang]);
-  useEffect(() => {
-    localStorage.setItem("currency", cur);
-  }, [cur]);
+  const pickLang = (l: Lang) => { setLang(l); try { localStorage.setItem("lang-choice", l); } catch { /* private mode */ } };
+  const pickCur = (c: Currency) => { setCur(c); try { localStorage.setItem("currency-choice", c); } catch { /* private mode */ } };
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
   const signupUrl = signupUrlFor(country, cur);
   const price = fmtMoney("247", lang, cur);
