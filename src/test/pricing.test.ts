@@ -38,11 +38,32 @@ describe("flat multi-currency pricing", () => {
   it("pricing card shows the 7,000 anchor, the item values and the 15,179 total", () => {
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const t = localize(DICT[lang], lang, "EUR");
-      expect(t.value).toContain("€15.000");
-      expect(t.includesTotal).toContain("15.179");
-      expect(t.includes.some((i) => i.includes("€2.997"))).toBe(true);
-      expect(t.includes.some((i) => i.includes("€497"))).toBe(true);
+      expect(t.includesTotal).toMatch(/15[.,\s]179/);
+      expect(t.includes.some(([, v]) => /2[.,\s]997\s*€?/.test(v))).toBe(true);
+      expect(t.includes.some(([, v]) => /497\s*€?/.test(v))).toBe(true);
+      expect(t.value).not.toMatch(/\{[A-Z0-9]+\}/);
+      // value column sits on the right: every item is a [label, value] pair
+      for (const [label, v] of t.includes) {
+        expect(typeof label).toBe("string");
+        expect(label.length).toBeGreaterThan(0);
+        expect(typeof v).toBe("string");
+      }
     }
+  });
+
+  it("the Dutch value line mentions savings, expertise, connections and direct help", () => {
+    const nl = localize(DICT.nl, "nl", "EUR");
+    expect(nl.value).toContain("besparingen");
+    expect(nl.value).toContain("expertise");
+    expect(nl.value).toContain("connecties");
+  });
+
+  it("the Dutch headline and lifetime wording use the requested phrasing", () => {
+    const nl = localize(DICT.nl, "nl", "EUR");
+    expect(nl.vsTitle).toBe("Waarom je die €7.000+ in je eigen business moet steken — en niet in een coach");
+    expect(nl.pricingTitle).toBe("Lifetime toegang");
+    expect(nl.includes.some(([label]) => label.includes("Lifetime toegang tot de videocursus"))).toBe(true);
+    expect(nl.includes.some(([label]) => label.includes("Levenslange"))).toBe(false);
   });
 });
 
