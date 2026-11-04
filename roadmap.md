@@ -13,5 +13,5 @@
 - FAQ: 6 vragen in 5 talen
 
 ## Open
-- Echte betaallinks invullen: per valuta in SIGNUP_URLS (EUR/USD/GBP), eventueel per land in SIGNUP_URLS_BY_COUNTRY — wacht op de links van Kiki
+- Aparte Whop-links per land (nu gebruikt elk land de Benelux-link) — wacht op de links van Kiki
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"

@@ -2,10 +2,11 @@ import type { Currency } from "@/lib/i18n";
 
 // One sign-up / checkout link per currency (fallback). Replace "#join" with
 // the real links.
+const WHOP_DEFAULT = "https://whop.com/90daysecom-com/benelux-03-3da6/";
 export const SIGNUP_URLS: Record<Currency, string> = {
-  EUR: "https://whop.com/90daysecom-com/benelux-03-3da6/",
-  USD: "#join",
-  GBP: "#join",
+  EUR: WHOP_DEFAULT,
+  USD: WHOP_DEFAULT,
+  GBP: WHOP_DEFAULT,
 };
 
 // Optional: one link per country, overriding the currency link. Fill in only
