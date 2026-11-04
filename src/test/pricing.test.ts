@@ -83,11 +83,13 @@ describe("automatic country detection", () => {
     expect(langForCountry("CA")).toBe("en-ca");
   });
 
-  it("every other country gets English and USD", () => {
-    expect(langForCountry("TH")).toBe("en");
+  it("countries outside the regional versions get US English and USD", () => {
+    expect(langForCountry("TH")).toBe("en-us");
     expect(currencyForCountry("TH")).toBe("USD");
-    expect(langForCountry("AE")).toBe("en");
+    expect(langForCountry("AE")).toBe("en-us");
     expect(currencyForCountry("AE")).toBe("USD");
+    expect(langForCountry("AU")).toBe("en-us");
+    expect(currencyForCountry("AU")).toBe("USD");
   });
 });
 
