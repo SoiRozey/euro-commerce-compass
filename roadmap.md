@@ -1,6 +1,8 @@
 # Roadmap 90 Days Ecom Group
 
 ## Klaar
+- Overige landen gebruiken Amerikaans Engels (US-vlag) en USD; getest met gesimuleerde TH/AE/US/NL/GB-bezoekers
+- Andere coaches: beperkte persoonlijke hulp, geen verantwoordelijkheid, geen belang bij succes en gratis YouTube-basisinformatie toegevoegd in alle talen
 - 12 services: nr. 12 is nu "Lifetime videocursus" (was 24/7 beschikbaarheid); 2 private payment providers als eigen USP
 - Prijzanker overal 7.000 (was 5.000): vs-kop, hero, FAQ-token {A}
 - Vergelijking uitgebreid: minimaal 7.000 vooraf, onnodige upsells/commissies, "jij bent hun product"
