@@ -38,7 +38,7 @@ describe("flat multi-currency pricing", () => {
   it("pricing card shows the 7,000 anchor, the item values and the 15,179 total", () => {
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const t = localize(DICT[lang], lang, "EUR");
-      expect(t.includesTotal).toMatch(/15[.,]179/);
+      expect(t.includesTotal).toMatch(/15[.,\s]179/);
       expect(t.includes.some(([, v]) => /2[.,\s]997\s*€?/.test(v))).toBe(true);
       expect(t.includes.some(([, v]) => /497\s*€?/.test(v))).toBe(true);
       expect(t.value).not.toMatch(/\{[A-Z0-9]+\}/);
