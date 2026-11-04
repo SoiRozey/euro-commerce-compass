@@ -30,7 +30,7 @@ type Dict = {
   pricingTitle: string;
   once: string;
   value: string;
-  includes: string[];
+  includes: [string, string][];
   includesTotal: string;
   guarantee: string;
   faqTitle: string;
@@ -50,11 +50,11 @@ const nl: Dict = {
     "90 Days Ecom Group is de one-stop-shop voor dropshipping en branded dropshipping. Andere coaches vragen {A}+. Wij vragen eenmalig {P} — en helpen je met álles.",
   heroSecondary: "Bekijk resultaten",
   stats: [["24/7", "Community actief"], ["{P}", "Eenmalig, geen abonnement"], ["A–Z", "Partners voor elk probleem"], ["{SYM}100K+", "Omzet per maand bij leden"]],
-  vsTitle: "Waarom die {A}+ in je eigen business moeten steken — en niet in een coach",
+  vsTitle: "Waarom je die {A}+ in je eigen business moet steken — en niet in een coach",
   vsOthers: "Andere coaches",
   vsOthersItems: ["Minimaal {A} vooraf investeren", "Onnodige upsells naar dingen die je niet nodig hebt — alleen maar om zelf commissie te verdienen", "Jij bent hun product: zij verdienen het meest aan jou", "Eén uurtje per maand, als je geluk hebt", "Komen niet opdagen", "Geen hulp bij echte problemen"],
   vsUs: "90 Days Ecom Group",
-  vsUsItems: ["Eenmalig {P} — lifetime access", "24/7 actieve community — nooit alleen bouwen", "Compleet A–Z-partnernetwerk voor elke fase van je business", "Praktische oplossingen voor elke e-com uitdaging", "Gratis persoonlijke onboarding", "Levenslange toegang tot de complete e-commerce videocursus", "Maandelijkse expert calls met experts uit de branche", "Exclusieve meetups elk kwartaal", "Exit-strategieën: verkoop je store direct aan ons", "Geen onnodige upsells of dure upgrades", "Geen verborgen kosten of abonnementen", "Wij staan voor je klaar — vanaf dag één en voor de lange termijn"],
+  vsUsItems: ["Eenmalig {P} — lifetime access", "24/7 actieve community — nooit alleen bouwen", "Compleet A–Z-partnernetwerk voor elke fase van je business", "Praktische oplossingen voor elke e-com uitdaging", "Gratis persoonlijke onboarding", "Lifetime toegang tot de complete e-commerce videocursus", "Maandelijkse expert calls met experts uit de branche", "Exclusieve meetups elk kwartaal", "Exit-strategieën: verkoop je store direct aan ons", "Geen onnodige upsells of dure upgrades", "Geen verborgen kosten of abonnementen", "Wij staan voor je klaar — vanaf dag één en voor de lange termijn"],
   servicesEyebrow: "De one-stop-shop",
   servicesTitle: "Wat je probleem ook is, wij hebben iemand voor je",
   services: [
@@ -69,7 +69,7 @@ const nl: Dict = {
     ["Google, Meta & Pinterest", "Expertise in Google Ads, Meta en Pinterest — plus e-mailmarketing voor herhaalaankopen."],
     ["Expert call", "Elke maand een live call met een topexpert uit de branche."],
     ["Kwartaal meetup", "Elk kwartaal samenkomen met de hele groep. Netwerk = net worth."],
-    ["Lifetime videocursus", "Levenslang en onbeperkt toegang tot de volledige videocursus — leer in je eigen tempo, op elk device, voor altijd."],
+    ["Lifetime videocursus", "Lifetime en onbeperkt toegang tot de volledige videocursus — leer in je eigen tempo, op elk device, voor altijd."],
   ],
   resultsEyebrow: "Resultaten",
   resultsTitle: "Van starter tot een ton per maand",
@@ -92,10 +92,10 @@ const nl: Dict = {
     "Opgezet door Kiki Rozey — zelf e-com ondernemer. Kiki bouwde een eigen store op naar {SYM}150K per maand en verkocht die. Nu bouwt hij aan nieuwe fashion stores en een e-com portfolio met meerdere stores.",
   ],
   pricingEyebrow: "Eén prijs. Alles inbegrepen.",
-  pricingTitle: "Levenslange toegang",
+  pricingTitle: "Lifetime toegang",
   once: "eenmalig",
-  value: "Waarde: {V}+ aan e-commercekennis, expertise, connecties en directe hulp — plus de mogelijkheid om tienduizenden {SYM} te besparen dankzij de juiste partners en oplossingen.",
-  includes: ["24/7 toegang tot de community — waarde {V1}", "Compleet A–Z-partnernetwerk — waarde {V2}", "Maandelijkse expert calls — waarde {V3}", "Live meetup elk kwartaal — waarde {V4}", "Hulp bij payment holds, ad accounts, btw en meer — waarde {V5}", "Levenslange toegang tot de videocursus — waarde {V6}", "Persoonlijke onboarding — waarde {V7}", "Geen abonnement, geen verborgen kosten"],
+  value: "Waarde: tienduizenden {SYM} aan besparingen, expertise, connecties en directe hulp.",
+  includes: [["24/7 toegang tot de community", "waarde {V1}"], ["Compleet A–Z-partnernetwerk", "waarde {V2}"], ["Maandelijkse expert calls", "waarde {V3}"], ["Live meetup elk kwartaal", "waarde {V4}"], ["Hulp bij payment holds, ad accounts, btw en meer", "waarde {V5}"], ["Lifetime toegang tot de videocursus", "waarde {V6}"], ["Persoonlijke onboarding", "waarde {V7}"], ["Geen abonnement, geen verborgen kosten", ""]],
   includesTotal: "Totale waarde = {VT}+",
   guarantee: "Veilig betalen · Direct toegang",
   faqTitle: "Veelgestelde vragen",
