@@ -27,7 +27,7 @@ describe("flat multi-currency pricing", () => {
       "en",
       "GBP"
     );
-    expect(en).toEqual({ hero: "one-time £247", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £10,000, total £20,682" });
+    expect(en).toEqual({ hero: "one-time £247", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
     expect(JSON.stringify(DICT)).not.toContain("€");
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const resolved = JSON.stringify(localize(DICT[lang], lang, "EUR"));
@@ -35,10 +35,10 @@ describe("flat multi-currency pricing", () => {
     }
   });
 
-  it("pricing card shows the 7,000 anchor, the item values and the 20,682 total", () => {
+  it("pricing card shows the 7,000 anchor, the item values and the 20,279 total", () => {
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const t = localize(DICT[lang], lang, "EUR");
-      expect(t.includesTotal).toMatch(/20[.,\s]682/);
+      expect(t.includesTotal).toMatch(/20[.,\s]279/);
       expect(t.includes.some(([, v]) => /2[.,\s]997\s*€?/.test(v))).toBe(true);
       expect(t.includes.some(([, v]) => /497\s*€?/.test(v))).toBe(true);
       expect(t.value).not.toMatch(/\{[A-Z0-9]+\}/);
@@ -51,11 +51,11 @@ describe("flat multi-currency pricing", () => {
     }
   });
 
-  it("the elite network value is 10,000 in every currency and language", () => {
+  it("the elite network value is 9,597 in every currency and language", () => {
     for (const lang of ["nl", "en", "en-us", "en-ca", "de", "fr", "es"] as const) {
       for (const currency of ["EUR", "USD", "GBP"] as const) {
         const t = localize(DICT[lang], lang, currency);
-        expect(t.includes[1]?.[1]).toContain(fmtMoney("10000", lang, currency));
+        expect(t.includes[1]?.[1]).toContain(fmtMoney("9597", lang, currency));
       }
     }
   });
@@ -63,7 +63,7 @@ describe("flat multi-currency pricing", () => {
   it("total value equals the sum of all included item values", () => {
     const t = localize(DICT.en, "en", "EUR");
     const sum = t.includes.reduce((total, [, value]) => total + Number(value.replace(/\D/g, "")), 0);
-    expect(sum).toBe(20682);
+    expect(sum).toBe(20279);
     expect(Number(t.includesTotal.replace(/\D/g, ""))).toBe(sum);
   });
 
