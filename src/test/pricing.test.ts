@@ -3,10 +3,15 @@ import { DICT, currencyForCountry, fmtMoney, langForCountry, localize } from "@/
 import { SIGNUP_URLS, signupUrlFor } from "@/lib/site";
 
 describe("flat multi-currency pricing", () => {
-  it("offer price is always 247 in every currency", () => {
-    expect(fmtMoney("247", "en", "EUR")).toBe("€247");
-    expect(fmtMoney("247", "en", "USD")).toBe("$247");
-    expect(fmtMoney("247", "en", "GBP")).toBe("£247");
+  it("offer price is always 297 in every currency and language", () => {
+    for (const lang of ["nl", "en", "en-us", "en-ca", "de", "fr", "es"] as const) {
+      for (const currency of ["EUR", "USD", "GBP"] as const) {
+        expect(localize("{P}", lang, currency)).toBe(fmtMoney("297", lang, currency));
+      }
+    }
+    expect(localize("{P}", "en", "EUR")).toBe("€297");
+    expect(localize("{P}", "en", "USD")).toBe("$297");
+    expect(localize("{P}", "en", "GBP")).toBe("£297");
   });
 
   it("anchor value is always 7,000 in every currency", () => {
@@ -16,7 +21,7 @@ describe("flat multi-currency pricing", () => {
   });
 
   it("formats per language convention", () => {
-    expect(fmtMoney("247", "de", "EUR")).toBe("247 €");
+    expect(fmtMoney("297", "de", "EUR")).toBe("297 €");
     expect(fmtMoney("7000", "de", "USD")).toBe("7.000 $");
     expect(fmtMoney("7000", "fr", "EUR")).toBe("7 000 €");
   });
@@ -27,7 +32,7 @@ describe("flat multi-currency pricing", () => {
       "en",
       "GBP"
     );
-    expect(en).toEqual({ hero: "one-time £247", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
+    expect(en).toEqual({ hero: "one-time £297", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
     expect(JSON.stringify(DICT)).not.toContain("€");
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const resolved = JSON.stringify(localize(DICT[lang], lang, "EUR"));
