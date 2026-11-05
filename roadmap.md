@@ -1,6 +1,7 @@
 # Roadmap 90 Days Ecom Group
 
 ## Klaar
+- Lidmaatschap overal 297 in EUR/USD/GBP; Black Friday deal bij het prijsblok
 - Vergelijkingspunt over opdringerige verkopers zonder eigen e-commerce-ervaring toegevoegd in alle talen
 - Overige landen gebruiken Amerikaans Engels (US-vlag) en USD; getest met gesimuleerde TH/AE/US/NL/GB-bezoekers
 - Andere coaches: beperkte persoonlijke hulp, geen verantwoordelijkheid, geen belang bij succes en gratis YouTube-basisinformatie toegevoegd in alle talen

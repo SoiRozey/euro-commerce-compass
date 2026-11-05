@@ -7,9 +7,9 @@ import heroTex from "@/assets/hero-texture.jpg";
 import { CURRENCIES, CURRENCY_FLAG, CURRENCY_SYMBOL, DICT, LANGS, LANG_FLAG, LANG_LABEL, currencyForCountry, detectCountry, detectCurrency, fmtMoney, langForCountry, localize, type Currency, type Lang } from "@/lib/i18n";
 import { signupUrlFor } from "@/lib/site";
 
-const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €247 eenmalig";
+const TITLE = "90 Days Ecom Group — E-commerce & Dropshipping Community | €297 eenmalig";
 const DESC =
-  "De one-stop-shop community voor dropshipping en branded dropshipping. Hulp bij payment holds, ad accounts, btw, boekhouding en company formation. Eenmalig €247, 24/7 actief.";
+  "De one-stop-shop community voor dropshipping en branded dropshipping. Hulp bij payment holds, ad accounts, btw, boekhouding en company formation. Black Friday deal: eenmalig €297, 24/7 actief.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
           name: "90 Days Ecom Group — Lifetime Membership",
           description: DESC,
           brand: { "@type": "Organization", name: "90 Days Ecom Group" },
-          offers: { "@type": "Offer", price: "247", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
+           offers: { "@type": "Offer", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
         }),
       },
     ],
@@ -103,7 +103,7 @@ function Index() {
   const pickCur = (c: Currency) => { setCur(c); try { localStorage.setItem("currency-choice", c); } catch { /* private mode */ } };
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
   const signupUrl = signupUrlFor(country, cur);
-  const price = fmtMoney("247", lang, cur);
+  const price = fmtMoney("297", lang, cur);
   const anchor = fmtMoney("7000", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
 
@@ -248,6 +248,7 @@ function Index() {
           <div id="join" className="mx-auto max-w-xl px-6 text-center">
             <p className="eyebrow">{t.pricingEyebrow}</p>
             <div className="card-lux mt-8 p-10 shadow-glow ring-1 ring-rose">
+              <p className="eyebrow mb-4 text-rose-light">Black Friday deal</p>
               <h2 className="text-3xl">{t.pricingTitle}</h2>
               <div className="mt-6 flex items-end justify-center gap-3">
                 <span className="text-2xl text-muted-foreground line-through">{anchor}</span>
