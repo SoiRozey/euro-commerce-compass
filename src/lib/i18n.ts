@@ -442,13 +442,13 @@ export function tt(template: string, lang: Lang, cur: Currency): string {
     .replaceAll("{T}", fmtMoney("10000", lang, cur))
     .replaceAll("{V}", fmtMoney("15000", lang, cur))
     .replaceAll("{V1}", fmtMoney("2997", lang, cur))
-    .replaceAll("{V2}", fmtMoney("4497", lang, cur))
+    .replaceAll("{V2}", fmtMoney("10000", lang, cur))
     .replaceAll("{V3}", fmtMoney("2497", lang, cur))
     .replaceAll("{V4}", fmtMoney("1497", lang, cur))
     .replaceAll("{V5}", fmtMoney("1197", lang, cur))
     .replaceAll("{V6}", fmtMoney("1997", lang, cur))
     .replaceAll("{V7}", fmtMoney("497", lang, cur))
-    .replaceAll("{VT}", fmtMoney("15179", lang, cur))
+    .replaceAll("{VT}", fmtMoney("20682", lang, cur))
     .replaceAll("{SYM}", CURRENCY_SYMBOL[cur]);
 }
 
