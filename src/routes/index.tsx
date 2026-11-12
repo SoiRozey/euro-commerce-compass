@@ -253,7 +253,7 @@ function Index() {
               <div className="mt-6 flex items-end justify-center gap-3">
                 <span className="text-2xl text-muted-foreground line-through">{anchor}</span>
                 <span className="font-display text-8xl leading-none text-rose-gradient">{price}</span>
-                <span className="mb-2 shrink-0 rounded-full bg-rose/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-rose-light ring-1 ring-rose/40">{t.discount}</span>
+                <span className="mb-2 shrink-0 rounded-full bg-rose/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-snow ring-1 ring-rose/40">{t.discount}</span>
               </div>
               <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{t.once}</p>
               <p className="mt-6 text-sm text-rose-light">{t.value}</p>
