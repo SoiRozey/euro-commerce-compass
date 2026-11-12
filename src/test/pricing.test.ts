@@ -124,4 +124,22 @@ describe("per-country and per-currency signup links", () => {
   it("works without a known country too", () => {
     expect(signupUrlFor(null, "EUR")).toBe(SIGNUP_URLS.EUR);
   });
+
+  it("sends NL to the Benelux checkout, GB to the UK checkout and everyone else to the US checkout", () => {
+    expect(signupUrlFor("NL", "EUR")).toBe("https://whop.com/90daysecom-com/benelux-03-3da6/");
+    expect(signupUrlFor("GB", "GBP")).toBe("https://whop.com/90daysecom-com/90-days-ecom-uk/");
+    expect(signupUrlFor("US", "USD")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+    expect(signupUrlFor("CA", "USD")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+    expect(signupUrlFor("TH", "USD")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+    // euro countries outside NL still get the US checkout, even though they see euro prices
+    expect(signupUrlFor("DE", "EUR")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+    expect(signupUrlFor("FR", "EUR")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+    expect(signupUrlFor("ES", "EUR")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+  });
+
+  it("falls back on the currency link only when the country is unknown", () => {
+    expect(signupUrlFor(null, "EUR")).toBe("https://whop.com/90daysecom-com/benelux-03-3da6/");
+    expect(signupUrlFor(null, "GBP")).toBe("https://whop.com/90daysecom-com/90-days-ecom-uk/");
+    expect(signupUrlFor(null, "USD")).toBe("https://whop.com/90daysecom-com/90-days-ecom-millionaires-us/");
+  });
 });
