@@ -405,7 +405,7 @@ const es: Dict = {
 export const DICT: Record<Lang, Dict> = { nl, en, de, fr, es, "en-us": en, "en-ca": en };
 
 // ===== Currency & price tokens =====
-// Flat pricing rule: the offer is always 297 and the anchor always 7,000 in the
+// Flat pricing rule: the offer is always 297 and the anchor always 14,850 in the
 // visitor's currency — never converted with live exchange rates.
 export const CURRENCIES = ["EUR", "USD", "GBP"] as const;
 export type Currency = (typeof CURRENCIES)[number];
@@ -437,7 +437,7 @@ export function fmtMoney(digits: string, lang: Lang, cur: Currency): string {
 export function tt(template: string, lang: Lang, cur: Currency): string {
   return template
     .replaceAll("{P}", fmtMoney("297", lang, cur))
-    .replaceAll("{A}", fmtMoney("7000", lang, cur))
+    .replaceAll("{A}", fmtMoney("14850", lang, cur))
     .replaceAll("{F}", fmtMoney("6000", lang, cur))
     .replaceAll("{T}", fmtMoney("10000", lang, cur))
     .replaceAll("{V}", fmtMoney("15000", lang, cur))

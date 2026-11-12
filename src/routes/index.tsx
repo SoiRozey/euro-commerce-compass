@@ -104,7 +104,7 @@ function Index() {
   const t = useMemo(() => localize(DICT[lang], lang, cur), [lang, cur]);
   const signupUrl = signupUrlFor(country, cur);
   const price = fmtMoney("297", lang, cur);
-  const anchor = fmtMoney("7000", lang, cur);
+  const anchor = fmtMoney("14850", lang, cur);
   const ids = ["why", "services", "results", "about", "pricing"];
 
   return (
