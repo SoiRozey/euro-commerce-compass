@@ -18,7 +18,7 @@
 
 - Whop-checkoutlinks gekoppeld: NL → Benelux-link, GB → UK-link, alle overige landen → US-link (onbekende land: valuta beslist)
 - Prijzanker overal 14.850 (was 7.000): vs-kop, hero, FAQ-token {A}, doorgestreepte prijs op de prijscard
-- Kortingsbadge bij de prijs: vetgedrukt "89% korting" (keuze van Kiki), in alle vijf talen
+- Kortingsbadge bij de prijs: vetgedrukt "98% korting" (297 is precies 2% van 14.850), in alle vijf talen
 
 ## Open
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"
