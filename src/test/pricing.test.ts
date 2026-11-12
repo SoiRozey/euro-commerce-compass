@@ -39,7 +39,7 @@ describe("flat multi-currency pricing", () => {
       "en",
       "GBP"
     );
-    expect(en).toEqual({ hero: "one-time £297", vs: "£14,850 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
+    expect(en).toEqual({ hero: "one-time £297", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
     expect(JSON.stringify(DICT)).not.toContain("€");
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const resolved = JSON.stringify(localize(DICT[lang], lang, "EUR"));
@@ -88,7 +88,7 @@ describe("flat multi-currency pricing", () => {
 
   it("the Dutch headline and lifetime wording use the requested phrasing", () => {
     const nl = localize(DICT.nl, "nl", "EUR");
-    expect(nl.vsTitle).toBe("Waarom je die €14.850+ in je eigen business moet steken — en niet in een coach");
+    expect(nl.vsTitle).toBe("Waarom je die €7.000+ in je eigen business moet steken — en niet in een coach");
     expect(nl.pricingTitle).toBe("Lifetime toegang");
     expect(nl.includes.some(([label]) => label.includes("Lifetime toegang tot de videocursus"))).toBe(true);
     expect(nl.includes.some(([label]) => label.includes("Levenslange"))).toBe(false);
