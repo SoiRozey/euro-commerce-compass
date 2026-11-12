@@ -17,7 +17,7 @@
 - FAQ: 6 vragen in 5 talen
 
 - Whop-checkoutlinks gekoppeld: NL → Benelux-link, GB → UK-link, alle overige landen → US-link (onbekende land: valuta beslist)
-- Prijzanker overal 14.850 (was 7.000): vs-kop, hero, FAQ-token {A}, doorgestreepte prijs op de prijscard
+- Prijzanker 14.850 alleen als doorgestreepte prijs op de prijscard; vergelijking/kop/FAQ terug naar 7.000 ({A}), eerste vs-punt nu "7K tot 15K vooraf — en daarna nog in je eigen business investeren"
 - Kortingsbadge bij de prijs: vetgedrukt "98% korting" (297 is precies 2% van 14.850), in alle vijf talen
 
 ## Open
