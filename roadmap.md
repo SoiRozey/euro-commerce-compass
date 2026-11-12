@@ -16,6 +16,7 @@
 - Over ons: titel "Ontmoet Kiki Rozey", serif-typografie, foto met rosé frame + badge
 - FAQ: 6 vragen in 5 talen
 
+- Whop-checkoutlinks gekoppeld: NL → Benelux-link, GB → UK-link, alle overige landen → US-link (onbekende land: valuta beslist)
+
 ## Open
-- Aparte Whop-links per land (nu gebruikt elk land de Benelux-link) — wacht op de links van Kiki
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"
