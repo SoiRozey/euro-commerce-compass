@@ -28,6 +28,7 @@ type Dict = {
   about: string[];
   pricingEyebrow: string;
   pricingTitle: string;
+  discount: string;
   once: string;
   value: string;
   includes: [string, string][];
@@ -94,6 +95,7 @@ const nl: Dict = {
   pricingEyebrow: "Eén prijs. Alles inbegrepen.",
   pricingTitle: "Lifetime toegang",
   once: "eenmalig",
+  discount: "98% korting",
   value: "Waarde: tienduizenden euro's aan besparingen, expertise, connecties en directe hulp.",
   includes: [["24/7 toegang tot de community", "waarde {V1}"], ["Elite inner circle partner network", "waarde {V2}"], ["Maandelijkse expert calls", "waarde {V3}"], ["Live meetup elk kwartaal", "waarde {V4}"], ["Hulp bij payment holds, ad accounts, btw en meer", "waarde {V5}"], ["Lifetime toegang tot de videocursus", "waarde {V6}"], ["Persoonlijke onboarding", "waarde {V7}"], ["Geen abonnement, geen verborgen kosten", ""]],
   includesTotal: "Totale waarde = {VT}+",
@@ -166,6 +168,7 @@ const en: Dict = {
   pricingEyebrow: "One price. Everything included.",
   pricingTitle: "Lifetime access",
   once: "one-time",
+  discount: "98% off",
   value: "Value: tens of thousands of {SYM} in savings, expertise, connections and direct support.",
   includes: [["24/7 community access", "value {V1}"], ["Elite inner circle partner network", "value {V2}"], ["Monthly expert calls", "value {V3}"], ["Live meetup every quarter", "value {V4}"], ["Help with payment holds, ad accounts, VAT & more", "value {V5}"], ["Lifetime access to the video course", "value {V6}"], ["Personal onboarding", "value {V7}"], ["No subscription, no hidden fees", ""]],
   includesTotal: "Total value = {VT}+",
@@ -238,6 +241,7 @@ const de: Dict = {
   pricingEyebrow: "Ein Preis. Alles inklusive.",
   pricingTitle: "Lebenslanger Zugang",
   once: "einmalig",
+  discount: "98% Rabatt",
   value: "Wert: zehntausende {SYM} an Ersparnissen, Expertise, Kontakten und direkter Hilfe.",
   includes: [["24/7 Community-Zugang", "Wert {V1}"], ["Elite inner circle partner network", "Wert {V2}"], ["Monatliche Expert-Calls", "Wert {V3}"], ["Live-Meetup jedes Quartal", "Wert {V4}"], ["Hilfe bei Payment Holds, Werbekonten, USt. & mehr", "Wert {V5}"], ["Lebenslangen Zugang zum Videokurs", "Wert {V6}"], ["Persönliches Onboarding", "Wert {V7}"], ["Kein Abo, keine versteckten Kosten", ""]],
   includesTotal: "Gesamtwert = {VT}+",
@@ -310,6 +314,7 @@ const fr: Dict = {
   pricingEyebrow: "Un prix. Tout inclus.",
   pricingTitle: "Accès à vie",
   once: "une fois",
+  discount: "98% de remise",
   value: "Valeur : des dizaines de milliers de {SYM} d'économies, d'expertise, de contacts et d'aide directe.",
   includes: [["Accès communauté 24/7", "valeur {V1}"], ["Elite inner circle partner network", "valeur {V2}"], ["Expert calls mensuels", "valeur {V3}"], ["Meetup chaque trimestre", "valeur {V4}"], ["Aide payment holds, comptes pub, TVA…", "valeur {V5}"], ["Accès à vie à la formation vidéo", "valeur {V6}"], ["Onboarding personnel", "valeur {V7}"], ["Sans abonnement, sans frais cachés", ""]],
   includesTotal: "Valeur totale = {VT}+",
@@ -382,6 +387,7 @@ const es: Dict = {
   pricingEyebrow: "Un precio. Todo incluido.",
   pricingTitle: "Acceso de por vida",
   once: "pago único",
+  discount: "98% de descuento",
   value: "Valor: decenas de miles de {SYM} en ahorros, experiencia, contactos y ayuda directa.",
   includes: [["Acceso a la comunidad 24/7", "valor {V1}"], ["Elite inner circle partner network", "valor {V2}"], ["Expert calls mensuales", "valor {V3}"], ["Meetup cada trimestre", "valor {V4}"], ["Ayuda con payment holds, cuentas de anuncios, IVA…", "valor {V5}"], ["Acceso de por vida al curso de vídeo", "valor {V6}"], ["Onboarding personal", "valor {V7}"], ["Sin suscripción, sin costes ocultos", ""]],
   includesTotal: "Valor total = {VT}+",
