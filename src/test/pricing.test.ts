@@ -14,16 +14,16 @@ describe("flat multi-currency pricing", () => {
     expect(localize("{P}", "en", "GBP")).toBe("£297");
   });
 
-  it("anchor value is always 7,000 in every currency", () => {
-    expect(fmtMoney("7000", "en", "EUR")).toBe("€7,000");
-    expect(fmtMoney("7000", "en", "USD")).toBe("$7,000");
-    expect(fmtMoney("7000", "en", "GBP")).toBe("£7,000");
+  it("anchor value is always 14,850 in every currency", () => {
+    expect(fmtMoney("14850", "en", "EUR")).toBe("€14,850");
+    expect(fmtMoney("14850", "en", "USD")).toBe("$14,850");
+    expect(fmtMoney("14850", "en", "GBP")).toBe("£14,850");
   });
 
   it("formats per language convention", () => {
     expect(fmtMoney("297", "de", "EUR")).toBe("297 €");
-    expect(fmtMoney("7000", "de", "USD")).toBe("7.000 $");
-    expect(fmtMoney("7000", "fr", "EUR")).toBe("7 000 €");
+    expect(fmtMoney("14850", "de", "USD")).toBe("14.850 $");
+    expect(fmtMoney("14850", "fr", "EUR")).toBe("14 850 €");
   });
 
   it("resolves every price token in the dict, with no hardcoded euro signs left", () => {
@@ -32,7 +32,7 @@ describe("flat multi-currency pricing", () => {
       "en",
       "GBP"
     );
-    expect(en).toEqual({ hero: "one-time £297", vs: "£7,000 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
+    expect(en).toEqual({ hero: "one-time £297", vs: "£14,850 – £10,000 upfront", sym: "£100K+", extra: "£15K and £1K to £2K", val: "worth £2,997 to £9,597, total £20,279" });
     expect(JSON.stringify(DICT)).not.toContain("€");
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const resolved = JSON.stringify(localize(DICT[lang], lang, "EUR"));
@@ -40,7 +40,7 @@ describe("flat multi-currency pricing", () => {
     }
   });
 
-  it("pricing card shows the 7,000 anchor, the item values and the 20,279 total", () => {
+  it("pricing card shows the 14,850 anchor, the item values and the 20,279 total", () => {
     for (const lang of ["nl", "en", "de", "fr", "es"] as const) {
       const t = localize(DICT[lang], lang, "EUR");
       expect(t.includesTotal).toMatch(/20[.,\s]279/);
@@ -81,7 +81,7 @@ describe("flat multi-currency pricing", () => {
 
   it("the Dutch headline and lifetime wording use the requested phrasing", () => {
     const nl = localize(DICT.nl, "nl", "EUR");
-    expect(nl.vsTitle).toBe("Waarom je die €7.000+ in je eigen business moet steken — en niet in een coach");
+    expect(nl.vsTitle).toBe("Waarom je die €14.850+ in je eigen business moet steken — en niet in een coach");
     expect(nl.pricingTitle).toBe("Lifetime toegang");
     expect(nl.includes.some(([label]) => label.includes("Lifetime toegang tot de videocursus"))).toBe(true);
     expect(nl.includes.some(([label]) => label.includes("Levenslange"))).toBe(false);
