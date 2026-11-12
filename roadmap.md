@@ -17,6 +17,7 @@
 - FAQ: 6 vragen in 5 talen
 
 - Whop-checkoutlinks gekoppeld: NL → Benelux-link, GB → UK-link, alle overige landen → US-link (onbekende land: valuta beslist)
+- Prijzanker overal 14.850 (was 7.000): vs-kop, hero, FAQ-token {A}, doorgestreepte prijs op de prijscard
 
 ## Open
 - Merknaam definitief: site "90 Days Ecom Group", logo zegt "Ecom Millionaires"
