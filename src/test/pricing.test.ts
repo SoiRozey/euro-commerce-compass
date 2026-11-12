@@ -20,6 +20,13 @@ describe("flat multi-currency pricing", () => {
     expect(fmtMoney("14850", "en", "GBP")).toBe("£14,850");
   });
 
+  it("the price is 98% below the anchor and the discount shows in every language", () => {
+    expect(Math.round((1 - 297 / 14850) * 100)).toBe(98);
+    for (const lang of ["nl", "en", "en-us", "en-ca", "de", "fr", "es"] as const) {
+      expect(localize(DICT[lang], lang, "EUR").discount).toContain("98");
+    }
+  });
+
   it("formats per language convention", () => {
     expect(fmtMoney("297", "de", "EUR")).toBe("297 €");
     expect(fmtMoney("14850", "de", "USD")).toBe("14.850 $");
