@@ -33,6 +33,7 @@
   --color-chocolate: var(--chocolate);
   --color-rose: var(--rose);
   --color-rose-light: var(--rose-light);
+  --color-snow: var(--snow);
 }
 
 :root {
@@ -48,6 +49,8 @@
   /* Rosé gold */
   --rose: oklch(0.74 0.09 50);
   --rose-light: oklch(0.86 0.06 55);
+  /* Pure white text token for high-contrast labels */
+  --snow: oklch(0.99 0 0);
   --primary: oklch(0.74 0.09 50);
   --primary-foreground: oklch(0.17 0.025 45);
   --secondary: oklch(0.26 0.035 45);
